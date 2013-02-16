@@ -157,10 +157,24 @@ $app-chrome-custom-font: "Lato", sans-serif;
       font-size: 12px;
       line-height: 12px;
       font-family: $app-chrome-os-font;
+      border: 1px solid transparent;
+      @include transition(all 0.3s);
+      
+      &:hover {
+        background-color: gray;
+        border-color: #666666;
+        color: white;
+        text-shadow: 0 1px 0 rgba( 0, 0, 0, 0.6 );
+        @include border-radius( 20px );
+        @include background-image( linear-gradient( top, rgba( 255, 255, 255, 0.5 ), rgba( 255, 255, 255, 0 ) ) );
+        @include box-shadow( 0 1px 0 rgba( 255, 255, 255, 0.6 ) inset, 0 5px 2px -4px rgba( 0, 0, 0, 0.5 ) );
+      }
+      
     }
+    
   }
   
-  .active > a {
+  .active > a, a:active, a:active:hover {
     @include border-radius( 15px );
     @include background( linear-gradient( top, #7c7c7b, #b2b2b2 ) );
     @include box-shadow( 0 1px 1px rgba( 0, 0, 0, 0.65 ) inset, 0 1px 0 rgba( 255, 255, 255, 0.75 ) );
@@ -278,6 +292,18 @@ $app-chrome-custom-font: "Lato", sans-serif;
   padding-top: 40px;
   text-align: center;
   
+  @media ( min-width: 768px ) {
+    @include margin-right( -30px );
+    padding-left: 10px;    
+    padding-right: 10px;    
+  }
+  
+  img {
+    border: 1px solid #999999;
+    @include border-radius( 3px );
+    @include box-shadow( 0 1px 0 white );
+  }
+  
   p {
     margin-top: 20px;
   }
@@ -289,15 +315,23 @@ $app-chrome-custom-font: "Lato", sans-serif;
   
   @media ( max-width: 1199px ) {
     p {
-      @include padding-left( 10px );
+      padding: 10px;
     }
   }
 }
 
 .app-social-links {
   
+  @media ( min-width: 767px ) {
+    @include margin-right( -30px );
+  }
+  
+  
   ul {
     list-style-type: none;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   li {
@@ -305,9 +339,7 @@ $app-chrome-custom-font: "Lato", sans-serif;
   }
   
   nav {
-    display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+    display: block;
   }
   
   a {

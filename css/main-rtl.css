@@ -199,9 +199,34 @@ body {
   font-size: 12px;
   line-height: 12px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border: 1px solid transparent;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 /* line 163, ../sass/_mac-app.scss */
-.app-chrome-nav .nav-pills .active > a {
+.app-chrome-nav .nav-pills li a:hover {
+  background-color: gray;
+  border-color: #666666;
+  color: white;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.6);
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  border-radius: 20px;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.5)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 5px 2px -4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 5px 2px -4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.6) inset, 0 5px 2px -4px rgba(0, 0, 0, 0.5);
+}
+/* line 177, ../sass/_mac-app.scss */
+.app-chrome-nav .nav-pills .active > a, .app-chrome-nav .nav-pills a:active, .app-chrome-nav .nav-pills a:active:hover {
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
@@ -218,46 +243,46 @@ body {
   color: white;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
 }
-/* line 171, ../sass/_mac-app.scss */
+/* line 185, ../sass/_mac-app.scss */
 .app-chrome-nav .nav-pills > .nav {
   margin-bottom: 0;
 }
-/* line 175, ../sass/_mac-app.scss */
+/* line 189, ../sass/_mac-app.scss */
 .app-chrome-nav .nav-pills a {
   color: #333333;
 }
 
-/* line 182, ../sass/_mac-app.scss */
+/* line 196, ../sass/_mac-app.scss */
 .app-article {
   float: left;
   background-color: #f4f4f4;
   text-shadow: 0 1px 0 white;
 }
 @media (min-width: 768px) {
-  /* line 182, ../sass/_mac-app.scss */
+  /* line 196, ../sass/_mac-app.scss */
   .app-article {
     -webkit-box-shadow: -1px 0 0 white, -2px 0 0 #d5d9de;
     -moz-box-shadow: -1px 0 0 white, -2px 0 0 #d5d9de;
     box-shadow: -1px 0 0 white, -2px 0 0 #d5d9de;
   }
 }
-/* line 191, ../sass/_mac-app.scss */
+/* line 205, ../sass/_mac-app.scss */
 .app-article h1, .app-article h2, .app-article h3, .app-article h4, .app-article h5, .app-article h6 {
   color: #4781b2;
   text-shadow: 0 1px 0 white;
 }
-/* line 196, ../sass/_mac-app.scss */
+/* line 210, ../sass/_mac-app.scss */
 .app-article .app-article-wrap {
   padding: 20px;
   color: #75808a;
 }
-/* line 200, ../sass/_mac-app.scss */
+/* line 214, ../sass/_mac-app.scss */
 .app-article .app-article-wrap hr {
   margin-left: -20px;
   margin-right: -20px;
 }
 
-/* line 213, ../sass/_mac-app.scss */
+/* line 227, ../sass/_mac-app.scss */
 .app-tags .app-tag {
   border: 1px solid #e5c41e;
   background-color: #ffe189;
@@ -283,65 +308,85 @@ body {
   -moz-box-shadow: 0 1px 0 white inset;
   box-shadow: 0 1px 0 white inset;
 }
-/* line 230, ../sass/_mac-app.scss */
+/* line 244, ../sass/_mac-app.scss */
 .app-tags a .app-tag:hover {
   -webkit-box-shadow: 0 1px 0 white inset, 0 0 5px #ffe189;
   -moz-box-shadow: 0 1px 0 white inset, 0 0 5px #ffe189;
   box-shadow: 0 1px 0 white inset, 0 0 5px #ffe189;
   background-color: #ffeebc;
 }
-/* line 235, ../sass/_mac-app.scss */
+/* line 249, ../sass/_mac-app.scss */
 .app-tags a .app-tag:active, .app-tags a .app-tag:hover:active {
   -webkit-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) inset, 0 1px 0 white;
   -moz-box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) inset, 0 1px 0 white;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5) inset, 0 1px 0 white;
 }
-/* line 240, ../sass/_mac-app.scss */
+/* line 254, ../sass/_mac-app.scss */
 .app-tags a:hover {
   text-decoration: none;
 }
-/* line 248, ../sass/_mac-app.scss */
+/* line 262, ../sass/_mac-app.scss */
 .app-tags span {
   text-transform: uppercase;
 }
 
-/* line 256, ../sass/_mac-app.scss */
+/* line 270, ../sass/_mac-app.scss */
 .app-sidebar {
   text-shadow: 0 1px 0 white;
 }
-/* line 260, ../sass/_mac-app.scss */
+/* line 274, ../sass/_mac-app.scss */
 .app-sidebar hr {
   margin-left: -28px;
   border-color: #D0D5DB transparent #F2F4F7;
 }
 @media (max-width: 1199px) {
-  /* line 260, ../sass/_mac-app.scss */
+  /* line 274, ../sass/_mac-app.scss */
   .app-sidebar hr {
     margin-left: -18px;
   }
 }
 @media (max-width: 767px) {
-  /* line 256, ../sass/_mac-app.scss */
+  /* line 270, ../sass/_mac-app.scss */
   .app-sidebar {
     clear: both;
   }
-  /* line 270, ../sass/_mac-app.scss */
+  /* line 284, ../sass/_mac-app.scss */
   .app-sidebar hr {
     margin-left: 0;
   }
 }
 
-/* line 277, ../sass/_mac-app.scss */
+/* line 291, ../sass/_mac-app.scss */
 .app-profile {
   padding-top: 40px;
   text-align: center;
 }
-/* line 281, ../sass/_mac-app.scss */
+@media (min-width: 768px) {
+  /* line 291, ../sass/_mac-app.scss */
+  .app-profile {
+    margin-left: -30px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+/* line 301, ../sass/_mac-app.scss */
+.app-profile img {
+  border: 1px solid #999999;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 1px 0 white;
+  -moz-box-shadow: 0 1px 0 white;
+  box-shadow: 0 1px 0 white;
+}
+/* line 307, ../sass/_mac-app.scss */
 .app-profile p {
   margin-top: 20px;
 }
 @media (max-width: 767px) {
-  /* line 277, ../sass/_mac-app.scss */
+  /* line 291, ../sass/_mac-app.scss */
   .app-profile {
     border-top: 1px solid #D0D5DB;
     -webkit-box-shadow: 0 1px 0 #f2f4f7 inset;
@@ -350,58 +395,65 @@ body {
   }
 }
 @media (max-width: 1199px) {
-  /* line 291, ../sass/_mac-app.scss */
+  /* line 317, ../sass/_mac-app.scss */
   .app-profile p {
-    padding-right: 10px;
+    padding: 10px;
   }
 }
 
-/* line 299, ../sass/_mac-app.scss */
+@media (min-width: 767px) {
+  /* line 323, ../sass/_mac-app.scss */
+  .app-social-links {
+    margin-left: -30px;
+  }
+}
+/* line 330, ../sass/_mac-app.scss */
 .app-social-links ul {
   list-style-type: none;
-}
-/* line 303, ../sass/_mac-app.scss */
-.app-social-links li {
-  float: right;
-}
-/* line 307, ../sass/_mac-app.scss */
-.app-social-links nav {
-  display: inline-block;
+  display: table;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 313, ../sass/_mac-app.scss */
+/* line 337, ../sass/_mac-app.scss */
+.app-social-links li {
+  float: right;
+}
+/* line 341, ../sass/_mac-app.scss */
+.app-social-links nav {
+  display: block;
+}
+/* line 345, ../sass/_mac-app.scss */
 .app-social-links a {
   width: 32px;
   height: 32px;
   margin: 5px;
 }
-/* line 318, ../sass/_mac-app.scss */
+/* line 350, ../sass/_mac-app.scss */
 .app-social-links a:hover {
   text-decoration: none;
 }
-/* line 323, ../sass/_mac-app.scss */
+/* line 355, ../sass/_mac-app.scss */
 .app-social-links .icon-social-rss {
   background-image: url("../img/zilla-social-icons/RSS.png");
 }
-/* line 324, ../sass/_mac-app.scss */
+/* line 356, ../sass/_mac-app.scss */
 .app-social-links .icon-social-twitter {
   background-image: url("../img/zilla-social-icons/Twitter.png");
 }
-/* line 325, ../sass/_mac-app.scss */
+/* line 357, ../sass/_mac-app.scss */
 .app-social-links .icon-social-dribbble {
   background-image: url("../img/zilla-social-icons/Dribbble.png");
 }
-/* line 326, ../sass/_mac-app.scss */
+/* line 358, ../sass/_mac-app.scss */
 .app-social-links .icon-social-github {
   background-image: url("../img/zilla-social-icons/GitHub.png");
 }
-/* line 327, ../sass/_mac-app.scss */
+/* line 359, ../sass/_mac-app.scss */
 .app-social-links .icon-social-plus {
   background-image: url("../img/zilla-social-icons/Google_Plus.png");
 }
 
-/* line 332, ../sass/_mac-app.scss */
+/* line 364, ../sass/_mac-app.scss */
 .app-footer {
   margin-top: 20px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
