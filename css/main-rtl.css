@@ -26,6 +26,13 @@ body {
   border: 1px solid black;
   text-shadow: 0 1px 0 black;
   color: white;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* line 35, ../sass/_override.scss */
+.nav > li > a:hover, .nav > li > a:focus {
+  background: none;
 }
 
 /* line 26, ../sass/_mac-app.scss */
