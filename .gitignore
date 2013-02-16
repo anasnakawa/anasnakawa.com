@@ -1,0 +1,7 @@
+*.scssc
+
+*.DS_Store
+
+*.project
+
+.sass-cache/
