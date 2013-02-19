@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title></title>
+    <link href="/atom.xml" rel="self"/>
+    <link href=""/>
+    <updated>2013-02-19T19:23:42.926Z</updated>
+    <id></id>
+    <author>
+        <name></name>
+        <email></email>
+    </author>
+
+    
+        <entry>
+            <title>This is a Blog Post</title>
+            <link href="undefined//posts/hello"/>
+            <updated>2013-02-19T18:26:42.000Z</updated>
+            <id>undefined//posts/hello</id>
+            <content type="html">&lt;!DOCTYPE html&gt;
+&lt;!--[if lt IE 7]&gt;      &lt;html class=&quot;no-js lt-ie9 lt-ie8 lt-ie7&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 7]&gt;         &lt;html class=&quot;no-js lt-ie9 lt-ie8&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if IE 8]&gt;         &lt;html class=&quot;no-js lt-ie9&quot;&gt; &lt;![endif]--&gt;
+&lt;!--[if gt IE 8]&gt;&lt;!--&gt; &lt;html class=&quot;no-js&quot;&gt; &lt;!--&lt;![endif]--&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;!-- Meta --&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+    &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+
+    &lt;!-- Use the .htaccess and remove these lines to avoid edge case issues.
+       More info: h5bp.com/i/378 --&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge,chrome=1&quot; /&gt;
+
+    &lt;!-- Our site title and description --&gt;
+    &lt;title&gt;This is a Blog Post | undefined&lt;/title&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;&quot; /&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;&quot; /&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;&quot; /&gt;
+
+    &lt;!-- Output DocPad produced meta elements --&gt;
+    &lt;meta http-equiv=&quot;X-Powered-By&quot; content=&quot;DocPad&quot;/&gt;
+
+    &lt;!-- Mobile viewport optimized: h5bp.com/viewport --&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width&quot; /&gt;
+
+    &lt;!-- Icons --&gt;
+  &lt;link rel=&quot;shortcut icon&quot; href=&quot;ico/favicon.ico&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;144x144&quot; href=&quot;ico/apple-touch-icon-144-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;114x114&quot; href=&quot;ico/apple-touch-icon-114-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; sizes=&quot;72x72&quot; href=&quot;ico/apple-touch-icon-72-precomposed.png&quot;&gt;
+  &lt;link rel=&quot;apple-touch-icon-precomposed&quot; href=&quot;ico/apple-touch-icon-57-precomposed.png&quot;&gt;
+
+    &lt;!-- Shims: IE6-8 support of HTML5 elements --&gt;
+    &lt;!--[if lt IE 9]&gt;
+        &lt;script async src=&quot;http://html5shim.googlecode.com/svn/trunk/html5.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+
+    &lt;!-- Styles --&gt;
+    
+    
+    
+    
+    
+    &lt;link  rel=&quot;stylesheet&quot; href=&quot;/components/bootstrap-sass/bootstrap-2.3.0.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;/components/bootstrap-sass/bootstrap-responsive-2.3.0.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;/components/font-awesome/css/font-awesome.css&quot; /&gt;&lt;link  rel=&quot;stylesheet&quot; href=&quot;/styles/main-ltr.css&quot; /&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Markup --&gt;
+    &lt;div class=&quot;container&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;div class=&quot;span10 offset1 app-chrome&quot;&gt;
+        
+        &lt;header&gt;
+          
+          &lt;div class=&quot;app-chrome-header&quot;&gt;
+            &lt;h1&gt;&lt;a href=&quot;/&quot;&gt;Anas Nakawa&lt;/a&gt;&lt;/h1&gt;
+            &lt;div class=&quot;app-chrome-actions&quot;&gt;
+              &lt;span class=&quot;app-chrome-close&quot;&gt;&amp;times;&lt;/span&gt;
+              &lt;span class=&quot;app-chrome-minimize&quot;&gt;-&lt;/span&gt;
+              &lt;span class=&quot;app-chrome-maximize&quot;&gt;+&lt;/span&gt;                  
+            &lt;/div&gt;
+          &lt;/div&gt;
+          
+           
+          &lt;nav class=&quot;app-chrome-nav&quot;&gt;
+            &lt;ul class=&quot;nav nav-pills&quot;&gt;
+              &lt;li typeof=&quot;sioc:Page&quot; about=&quot;/&quot;&gt;&lt;a href=&quot;/&quot;&gt;Home&lt;/a&gt;&lt;/li&gt;
+              
+                &lt;li typeof=&quot;sioc:Page&quot; about=&quot;/about&quot; class=&quot;&quot;&gt;
+                  &lt;a href=&quot;/about&quot; property=&quot;dc:title&quot;&gt;About&lt;/a&gt;
+                &lt;/li&gt;
+              
+                &lt;li typeof=&quot;sioc:Page&quot; about=&quot;/contact&quot; class=&quot;&quot;&gt;
+                  &lt;a href=&quot;/contact&quot; property=&quot;dc:title&quot;&gt;Contact&lt;/a&gt;
+                &lt;/li&gt;
+              
+            &lt;/ul&gt;
+          &lt;/nav&gt;
+        &lt;/header&gt;
+        
+        &lt;section class=&quot;row&quot;&gt;
+          
+          
+          &lt;!-- where content goes --&gt;
+          &lt;div class=&quot;span7 app-article&quot;&gt;
+            
+            &lt;div class=&quot;app-article-wrap&quot;&gt;
+              
+              &lt;article&gt;
+  
+  &lt;header&gt;
+                  
+    &lt;h1&gt;This is a Blog Post&lt;/h1&gt;
+    
+    &lt;hr /&gt;
+    
+    &lt;div class=&quot;app-tags&quot;&gt;
+      
+      &lt;time class=&quot;label app-tag&quot; pubdate datetime=&quot;2009-10-10T19:15-08:00&quot;&gt;09-Jan-2013&lt;/time&gt;
+      
+      &lt;a href=&quot;#&quot;&gt;
+        &lt;span class=&quot;label app-tag&quot;&gt;sass&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;
+        &lt;span class=&quot;label app-tag&quot;&gt;css&lt;/span&gt;
+      &lt;/a&gt;
+      &lt;a href=&quot;#&quot;&gt;
+        &lt;span class=&quot;label app-tag&quot;&gt;html&lt;/span&gt;
+      &lt;/a&gt;
+    &lt;/div&gt;
+    
+    &lt;hr /&gt;
+        
+  &lt;/header&gt;
+  
+  &lt;div class=&quot;app-post-content&quot;&gt;
+    &lt;p&gt;This is a &lt;strong&gt;blog post&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;/div&gt;
+
+&lt;/article&gt;
+
+&lt;footer&gt;
+    
+    &lt;section id=&quot;related&quot;&gt;
+        &lt;h3&gt;Related Posts&lt;/h3&gt;
+        &lt;nav class=&quot;linklist&quot;&gt;
+            
+                &lt;li&gt;&lt;span&gt;Feb 19 2013&lt;/span&gt;
+                &amp;raquo;
+                &lt;a href=&quot;/pages/hello&quot;&gt;This is a Page&lt;/a&gt;&lt;/li&gt;
+            
+        &lt;/nav&gt;
+    &lt;/section&gt;
+    
+&lt;/footer&gt;
+            
+            &lt;/div&gt;
+          
+          &lt;/div&gt;
+          
+          &lt;!-- about me --&gt;
+          &lt;aside class=&quot;span3 app-sidebar&quot;&gt;
+            
+            &lt;!-- -------------------------
+      sidebar about me widget
+     ------------------------- --&gt;
+
+&lt;div class=&quot;app-profile&quot;&gt;
+              
+  &lt;img src=&quot;http://placehold.it/128x128&quot; /&gt;
+  
+  &lt;p&gt;
+    
+    Hi I am Anas Nakawa, a user interface designer &amp; a front-end developer from Jordan living in Dubai
+    I love JavaScript, HTML, CSS and anything related to Open Source Wolrd
+  &lt;/p&gt;
+  
+&lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;div class=&quot;app-social-links clearfix&quot;&gt;
+  &lt;nav&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a data-toggle=&quot;tooltip&quot; title=&quot;RSS Feed&quot; class=&quot;icon-social-rss js-tooltip&quot; href=&quot;#&quot;&gt;&amp;nbsp;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a data-toggle=&quot;tooltip&quot; title=&quot;Twitter&quot; class=&quot;icon-social-twitter js-tooltip&quot; href=&quot;//twitter.com/anasnakawa&quot;&gt;&amp;nbsp;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a data-toggle=&quot;tooltip&quot; title=&quot;Github&quot; class=&quot;icon-social-github js-tooltip&quot; href=&quot;//github.com/anasnakawa&quot;&gt;&amp;nbsp;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a data-toggle=&quot;tooltip&quot; title=&quot;Dribbble&quot; class=&quot;icon-social-dribbble js-tooltip&quot; href=&quot;//dribbble.com/anasnakawa&quot;&gt;&amp;nbsp;&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a data-toggle=&quot;tooltip&quot; title=&quot;Google+&quot; class=&quot;icon-social-plus js-tooltip&quot; href=&quot;//plus.google.com/108491441707446208924&quot;&gt;&amp;nbsp;&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;
+
+&lt;hr /&gt;
+            
+          &lt;/aside&gt;
+          
+        &lt;/section&gt;
+        
+      &lt;/div&gt;
+      
+      &lt;footer class=&quot;app-footer span10 offset1&quot;&gt;
+        &lt;p class=&quot;center&quot;&gt;built using &lt;a href=&quot;//docpad.org&quot;&gt;Docpad&lt;/a&gt;, and &lt;a href=&quot;//twitter.github.com/bootstrap&quot;&gt;Bootstrap&lt;/a&gt;, source on &lt;a href=&quot;//github.com/anasnakawa/anasnakawa.com&quot;&gt;Github&lt;/a&gt;, &amp;copy; Anas Nakawa 2013 &lt;/p&gt;
+      &lt;/footer&gt;
+      
+    &lt;/div&gt;
+  &lt;/div&gt;
+    
+    &lt;!-- Scripts --&gt;
+    
+    
+    
+    
+    
+    
+    
+    &lt;script &gt;(function(){
+	// Did we just livereload?
+var log = true &amp;&amp; localStorage &amp;&amp; console &amp;&amp; console.log &amp;&amp; true;
+if ( log &amp;&amp; localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
+	localStorage.removeItem('/docpad-livereload/reloaded');
+	console.log('LiveReloaded at', new Date())
+}
+
+// Listen for the regenerated event
+// and perform a reload of the page when the event occurs
+var listen = function(){
+	var socket = io.connect('/docpad-livereload');
+	socket.on('regenerated',function(){
+		if ( log ) {
+	localStorage.setItem('/docpad-livereload/reloaded', 'yes');
+}
+document.location.reload();
+	});
+};
+	if ( typeof io !== 'undefined' ) {
+		listen();
+	} else {
+		// Inject socket.io into our page then listen once loaded
+var inject = function(){
+	var t = document.createElement('script');
+	t.type = 'text/javascript';
+	t.async = true;
+	t.src = '/socket.io/socket.io.js';
+	t.onload = listen;
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(t,s);
+};
+		inject();
+	}
+})();&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/vendor/modernizr.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/components/jquery-backstretch/jquery.backstretch.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/components/bootstrap-sass/js/bootstrap-tooltip.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/plugins.js&quot;&gt;&lt;/script&gt;&lt;script defer=&quot;defer&quot;  src=&quot;/js/main.js&quot;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</content>
+        </entry>
+    
+</feed>

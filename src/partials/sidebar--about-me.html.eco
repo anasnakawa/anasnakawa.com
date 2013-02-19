@@ -1,0 +1,32 @@
+
+<!-- -------------------------
+      sidebar about me widget
+     ------------------------- -->
+
+<div class="app-profile">
+              
+  <img src="http://placehold.it/128x128" />
+  
+  <p>
+    
+    Hi I am Anas Nakawa, a user interface designer & a front-end developer from Jordan living in Dubai
+    I love JavaScript, HTML, CSS and anything related to Open Source Wolrd
+  </p>
+  
+</div>
+
+<hr />
+
+<div class="app-social-links clearfix">
+  <nav>
+    <ul>
+      <li><a data-toggle="tooltip" title="RSS Feed" class="icon-social-rss js-tooltip" href="#">&nbsp;</a></li>
+      <li><a data-toggle="tooltip" title="Twitter" class="icon-social-twitter js-tooltip" href="//twitter.com/anasnakawa">&nbsp;</a></li>
+      <li><a data-toggle="tooltip" title="Github" class="icon-social-github js-tooltip" href="//github.com/anasnakawa">&nbsp;</a></li>
+      <li><a data-toggle="tooltip" title="Dribbble" class="icon-social-dribbble js-tooltip" href="//dribbble.com/anasnakawa">&nbsp;</a></li>
+      <li><a data-toggle="tooltip" title="Google+" class="icon-social-plus js-tooltip" href="//plus.google.com/108491441707446208924">&nbsp;</a></li>
+    </ul>
+  </nav>
+</div>
+
+<hr />

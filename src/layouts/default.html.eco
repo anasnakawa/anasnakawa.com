@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html lang="en">
+<head>
+	<!-- Meta -->
+	<meta charset="utf-8" />
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+	<!-- Use the .htaccess and remove these lines to avoid edge case issues.
+	   More info: h5bp.com/i/378 -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<!-- Our site title and description -->
+	<title><%= @getPreparedTitle() %></title>
+	<meta name="description" content="<%= @getPreparedDescription() %>" />
+	<meta name="keywords" content="<%= @getPreparedKeywords() %>" />
+	<meta name="author" content="<%= @site.author or '' %>" />
+
+	<!-- Output DocPad produced meta elements -->
+	<%- @getBlock('meta').toHTML() %>
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Icons -->
+  <link rel="shortcut icon" href="ico/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+
+	<!-- Shims: IE6-8 support of HTML5 elements -->
+	<!--[if lt IE 9]>
+		<script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<!-- Styles -->
+	<% styles = [] %>
+	<% styles.push( '/components/bootstrap-sass/bootstrap-2.3.0.css' ) %>
+	<% styles.push( '/components/bootstrap-sass/bootstrap-responsive-2.3.0.css' ) %>
+	<% styles.push( '/components/font-awesome/css/font-awesome.css' ) %>
+	<% styles.push( '/styles/main-ltr.css' ) %>
+	<%- @getBlock('styles').add( styles ).toHTML() %>
+</head>
+<body>
+	<!-- Markup -->
+	<div class="container">
+    <div class="row">
+      <div class="span10 offset1 app-chrome">
+        
+        <header>
+          
+          <div class="app-chrome-header">
+            <h1><a href="/">Anas Nakawa</a></h1>
+            <div class="app-chrome-actions">
+              <span class="app-chrome-close">&times;</span>
+              <span class="app-chrome-minimize">-</span>
+              <span class="app-chrome-maximize">+</span>                  
+            </div>
+          </div>
+          
+           
+          <nav class="app-chrome-nav">
+            <ul class="nav nav-pills">
+              <li typeof="sioc:Page" about="/"><a href="/">Home</a></li>
+              <% for rootPage in @getDatabase().findAll(nav: 'root', [order: 1]).toJSON(): %>
+                <li typeof="sioc:Page" about="<%= rootPage.url %>" class="<%= 'active'  if @document.url is rootPage.url %>">
+                  <a href="<%= rootPage.url %>" property="dc:title"><%= rootPage.title %></a>
+                </li>
+              <% end %>
+            </ul>
+          </nav>
+        </header>
+        
+        <section class="row">
+          
+          
+          <!-- where content goes -->
+          <div class="span7 app-article">
+            
+            <div class="app-article-wrap">
+              
+              <%- @content %>
+            
+            </div>
+          
+          </div>
+          
+          <!-- about me -->
+          <aside class="span3 app-sidebar">
+            
+            <%- @partial( 'sidebar--about-me.html.eco' ) %>
+            
+          </aside>
+          
+        </section>
+        
+      </div>
+      
+      <footer class="app-footer span10 offset1">
+        <p class="center">built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa <%= new Date().getFullYear() %> </p>
+      </footer>
+      
+    </div>
+  </div>
+	
+	<!-- Scripts -->
+	<% scripts = [] %>
+	<% scripts.push( '/js/vendor/modernizr.js' ) %>
+	<% scripts.push( '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js' ) %>
+	<% scripts.push( '/components/jquery-backstretch/jquery.backstretch.js' ) %>
+	<% scripts.push( '/components/bootstrap-sass/js/bootstrap-tooltip.js' ) %>
+	<% scripts.push( '/js/plugins.js' ) %>
+	<% scripts.push( '/js/main.js' ) %>
+	<%- @getBlock('scripts').add( scripts ).toHTML() %>
+</body>
+</html>
