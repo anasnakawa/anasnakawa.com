@@ -5,3 +5,5 @@
 *.project
 
 .sass-cache/
+
+node_modules/
