@@ -11,17 +11,41 @@
 // ------------------------------
 // stretching background
 // bootstrap tooltip
+// equal height columns
+// format dates
 // ------------------------------
 
-(function($) {
+(function( $ ) {
   
+  // es5 strict mode
   'use strict';
   
   // stretching background
   // ---------------------
-  $.backstretch("img/dawn-bg.jpg");
+  $.backstretch('/img/dawn-bg.jpg');
   
   // bootstrap tooltip
   // -----------------
   $('.js-tooltip').tooltip();
-})(jQuery);
+  
+  // equal height columns
+  // --------------------
+  $(window).load(function() {
+
+  	var $article = $('#appArticle')
+  	, $sidebar = $('#appSidebar')
+  	, articleHeight = $article.height()
+  	, sidebarHeight = $sidebar.height();
+
+  	if( articleHeight < sidebarHeight ) {
+  		$article.height( sidebarHeight + 10 );
+  	}
+
+  });
+  // }();
+
+  // format dates
+  // ------------
+  $('.js-format-date').formatDate();
+  
+})( jQuery );

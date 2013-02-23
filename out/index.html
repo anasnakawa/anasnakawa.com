@@ -14,16 +14,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <!-- Our site title and description -->
-    <title>Home | undefined</title>
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="author" content="" />
+    <title>Home | Anas Nakawa Blog</title>
+    <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title." />
+    <meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website" />
+    <meta name="author" content="Anas Nakawa" />
 
     <!-- Output DocPad produced meta elements -->
     <meta http-equiv="X-Powered-By" content="DocPad"/>
 
     <!-- Mobile viewport optimized: h5bp.com/viewport -->
     <meta name="viewport" content="width=device-width" />
+
+  <!-- linking to arom rss -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 
     <!-- Icons -->
   <link rel="shortcut icon" href="ico/favicon.ico">
@@ -41,11 +44,13 @@
     
     
     
+  
     
     
-    <link  rel="stylesheet" href="/components/bootstrap-sass/bootstrap-2.3.0.css" /><link  rel="stylesheet" href="/components/bootstrap-sass/bootstrap-responsive-2.3.0.css" /><link  rel="stylesheet" href="/components/font-awesome/css/font-awesome.css" /><link  rel="stylesheet" href="/styles/main-ltr.css" />
+    <link rel="stylesheet" href="/components/bootstrap-sass/bootstrap-2.3.0.css" /><link rel="stylesheet" href="/components/bootstrap-sass/bootstrap-responsive-2.3.0.css" /><link rel="stylesheet" href="/components/font-awesome/css/font-awesome.css" /><link rel="stylesheet" href="/components/highlight.js/src/styles/monokai.css" /><link rel="stylesheet" href="/styles/main-ltr.css" />
 </head>
 <body>
+  
     <!-- Markup -->
     <div class="container">
     <div class="row">
@@ -83,44 +88,71 @@
           
           
           <!-- where content goes -->
-          <div class="span7 app-article">
+          <div id="appArticle" class="span7 app-article">
             
             <div class="app-article-wrap">
               
-              <!-- Main hero unit for a primary marketing message or call to action -->
-<div class="hero-unit">
-    <h1>Welcome to your new site!</h1>
-    <p>
-        We've copied over the
-        <a href="https://github.com/docpad/twitter-bootstrap.docpad">
-            Twitter Bootstrap Skeleton
-        </a>
-        for you already, which is what you're currently viewing.
+              <section id="page" class="page">
+    <div class="page-content">
 
-        Step through the guide below and we'll walk you through the process of working with your first docpad website :-)
-    </p>
-</div>
 
-<!-- Example row of columns -->
-<div class="row" style="text-align:center;">
-    <div class="span6">
-        <h2>Docpad</h2>
-        <p>DocPad takes that good ol' simple approach of writing files and wraps it with the best modern innovations, providing an awesome intuitive, liberating and empowering solution for HTML5 web development.</p>
-        <p><a class="btn" href="https://github.com/bevry/docpad">Visit Website</a></p>
-    </div>
-    <div class="span6">
-        <h2>Twitter Bootstrap</h2>
-        <p>Bootstrap is a toolkit from Twitter designed to kickstart development of webapps and sites. It includes base CSS and HTML for typography, forms, buttons, tables, grids, navigation, and more.</p>
-        <p><a class="btn" href="http://twitter.github.com/bootstrap/">Visit Website</a></p>
-    </div>
-</div>
+<article>
+
+  
+
+      <header>
+      
+      <a href="/posts/blogging-with-docpad">
+        <h3>Blogging with Docpad</h3>
+      </a>
+
+      <hr />
+      
+      <div class="app-tags">
+        <time class="label app-tag" pubdate datetime="Sat Feb 23 2013 19:30:40 GMT+0400 (GST)">
+            <i class="icon-calendar"></i> 
+            <span class="js-format-date" data-date="Sat Feb 23 2013 19:30:40 GMT+0400 (GST)"></span>
+        </time>
+        
+            <a href="#">
+                <span class="label app-tag">docpad</span>
+            </a>
+        
+            <a href="#">
+                <span class="label app-tag">html</span>
+            </a>
+        
+            <a href="#">
+                <span class="label app-tag">post</span>
+            </a>
+        
+      </div>
+      
+      <hr />
+      
+      <div>
+
+          <p>This is a <strong>blog post</strong></p>
+<pre class="highlighted"><code class="javascript"><span class="comment">// this should be highlighted</span></code></pre>
+<pre class="highlighted"><code class="xml"><span class="tag">&lt;<span class="title">html</span>&gt;</span>as well as <span class="tag">&lt;<span class="title">strong</span>&gt;</span>this<span class="tag">&lt;/<span class="title">strong</span>&gt;</span><span class="tag">&lt;/<span class="title">html</span>&gt;</span></code></pre>
+
+
+      </div>
+      
+    </header>
+
+
+  
+
+</article></div>
+</section>
             
             </div>
           
           </div>
           
           <!-- about me -->
-          <aside class="span3 app-sidebar">
+          <aside id="appSidebar" class="span3 app-sidebar">
             
             <!-- -------------------------
       sidebar about me widget
@@ -161,54 +193,22 @@
       </div>
       
       <footer class="app-footer span10 offset1">
-        <p class="center">built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa 2013 </p>
+        <p class="center">built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on 
+        <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa 2013 </p>
       </footer>
       
     </div>
   </div>
     
     <!-- Scripts -->
+  
     
     
     
     
+  
+  
     
-    
-    
-    <script >(function(){
-	// Did we just livereload?
-var log = true && localStorage && console && console.log && true;
-if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
-	localStorage.removeItem('/docpad-livereload/reloaded');
-	console.log('LiveReloaded at', new Date())
-}
-
-// Listen for the regenerated event
-// and perform a reload of the page when the event occurs
-var listen = function(){
-	var socket = io.connect('/docpad-livereload');
-	socket.on('regenerated',function(){
-		if ( log ) {
-	localStorage.setItem('/docpad-livereload/reloaded', 'yes');
-}
-document.location.reload();
-	});
-};
-	if ( typeof io !== 'undefined' ) {
-		listen();
-	} else {
-		// Inject socket.io into our page then listen once loaded
-var inject = function(){
-	var t = document.createElement('script');
-	t.type = 'text/javascript';
-	t.async = true;
-	t.src = '/socket.io/socket.io.js';
-	t.onload = listen;
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(t,s);
-};
-		inject();
-	}
-})();</script><script defer="defer"  src="/js/vendor/modernizr.js"></script><script defer="defer"  src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script><script defer="defer"  src="/components/jquery-backstretch/jquery.backstretch.js"></script><script defer="defer"  src="/components/bootstrap-sass/js/bootstrap-tooltip.js"></script><script defer="defer"  src="/js/plugins.js"></script><script defer="defer"  src="/js/main.js"></script>
+    <script defer="defer"  src="/js/vendor/modernizr.js"></script><script defer="defer"  src="/components/jquery/jquery.js"></script><script defer="defer"  src="/components/jquery-backstretch/jquery.backstretch.js"></script><script defer="defer"  src="/components/bootstrap-sass/js/bootstrap-tooltip.js"></script><script defer="defer"  src="/js/config.js"></script><script defer="defer"  src="/js/plugins.js"></script><script defer="defer"  src="/js/main.js"></script>
 </body>
 </html>

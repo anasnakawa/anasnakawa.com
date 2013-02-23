@@ -1,3 +1,5 @@
+# config = require('./config')
+
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
 docpadConfig = {
@@ -12,9 +14,6 @@ docpadConfig = {
 		# Specify some site properties
 		site:
 		  
-		  # Development mode
-      mode: 'preview'
-		  
 			# The production url of our website
 			url: "http://anasnakawa.com"
 
@@ -24,7 +23,7 @@ docpadConfig = {
 			]
 
 			# The default title of our website
-			title: "Anas Nakawa"
+			title: 'Anas Nakawa Blog'
 
 			# The website description (for SEO)
 			description: """
@@ -41,7 +40,7 @@ docpadConfig = {
 
 			# The website author's email
 			email: "anas.nakawa@gmail.com"
-
+      
 
 
 		# -----------------------------

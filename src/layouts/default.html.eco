@@ -25,6 +25,9 @@
 	<!-- Mobile viewport optimized: h5bp.com/viewport -->
 	<meta name="viewport" content="width=device-width" />
 
+  <!-- linking to arom rss -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
 	<!-- Icons -->
   <link rel="shortcut icon" href="ico/favicon.ico">
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
@@ -41,11 +44,13 @@
 	<% styles = [] %>
 	<% styles.push( '/components/bootstrap-sass/bootstrap-2.3.0.css' ) %>
 	<% styles.push( '/components/bootstrap-sass/bootstrap-responsive-2.3.0.css' ) %>
-	<% styles.push( '/components/font-awesome/css/font-awesome.css' ) %>
+  <% styles.push( '/components/font-awesome/css/font-awesome.css' ) %>
+	<% styles.push( '/components/highlight.js/src/styles/monokai.css' ) %>
 	<% styles.push( '/styles/main-ltr.css' ) %>
 	<%- @getBlock('styles').add( styles ).toHTML() %>
 </head>
 <body>
+  
 	<!-- Markup -->
 	<div class="container">
     <div class="row">
@@ -79,7 +84,7 @@
           
           
           <!-- where content goes -->
-          <div class="span7 app-article">
+          <div id="appArticle" class="span7 app-article">
             
             <div class="app-article-wrap">
               
@@ -90,7 +95,7 @@
           </div>
           
           <!-- about me -->
-          <aside class="span3 app-sidebar">
+          <aside id="appSidebar" class="span3 app-sidebar">
             
             <%- @partial( 'sidebar--about-me.html.eco' ) %>
             
@@ -101,19 +106,21 @@
       </div>
       
       <footer class="app-footer span10 offset1">
-        <p class="center">built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa <%= new Date().getFullYear() %> </p>
+        <p class="center">built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on 
+        <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa <%= new Date().getFullYear() %> </p>
       </footer>
       
     </div>
   </div>
 	
 	<!-- Scripts -->
-	<% scripts = [] %>
+  <% scripts = [] %>
 	<% scripts.push( '/js/vendor/modernizr.js' ) %>
-	<% scripts.push( '//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js' ) %>
+	<% scripts.push( '/components/jquery/jquery.js' ) %>
 	<% scripts.push( '/components/jquery-backstretch/jquery.backstretch.js' ) %>
 	<% scripts.push( '/components/bootstrap-sass/js/bootstrap-tooltip.js' ) %>
-	<% scripts.push( '/js/plugins.js' ) %>
+  <% scripts.push( '/js/config.js' ) %>
+  <% scripts.push( '/js/plugins.js' ) %>
 	<% scripts.push( '/js/main.js' ) %>
 	<%- @getBlock('scripts').add( scripts ).toHTML() %>
 </body>

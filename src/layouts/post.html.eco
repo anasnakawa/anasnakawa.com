@@ -9,20 +9,22 @@ layout: default
     <h1><%= @document.title %></h1>
     
     <hr />
-    
+
     <div class="app-tags">
-      
-      <time class="label app-tag" pubdate datetime="2009-10-10T19:15-08:00">09-Jan-2013</time>
-      
-      <a href="#">
-        <span class="label app-tag">sass</span>
-      </a>
-      <a href="#">
-        <span class="label app-tag">css</span>
-      </a>
-      <a href="#">
-        <span class="label app-tag">html</span>
-      </a>
+      <time class="label app-tag" pubdate datetime="<%= @document.date %>">
+        <i class="icon-calendar"></i> 
+        <span class="js-format-date" data-date="<%= @document.date %>"></span>
+      </time>
+
+      <% if @document.meta.tags: %>
+
+        <% for tag in @document.meta.tags: %>
+          <a href="#">
+            <span class="label app-tag"><%= tag %></span>
+          </a>
+        <% end %>
+
+      <% end %>
     </div>
     
     <hr />
@@ -32,6 +34,10 @@ layout: default
   <div class="app-post-content">
     <%- @content %>
   </div>
+
+  <hr />
+
+  <%- @partial('plugins--disqus.html.eco') %>
 
 </article>
 
