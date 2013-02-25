@@ -1,4 +1,3 @@
-# config = require('./config')
 
 # The DocPad Configuration File
 # It is simply a CoffeeScript Object which is parsed by CSON
@@ -23,7 +22,7 @@ docpadConfig = {
 			]
 
 			# The default title of our website
-			title: 'Anas Nakawa Blog'
+			title: 'Anas Nakawa'
 
 			# The website description (for SEO)
 			description: """

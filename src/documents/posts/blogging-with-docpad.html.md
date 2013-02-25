@@ -1,7 +1,7 @@
 ---
 title 	: 'Blogging with Docpad'
 layout	: 'post'
-tags	: ['docpad', 'html', 'post']
+tags	  : ['docpad', 'html', 'post']
 ---
 
 This is a **blog post**

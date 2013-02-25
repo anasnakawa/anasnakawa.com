@@ -1,7 +1,6 @@
 ---
-title : 'About'
-nav   : 'root'
-layout: post
+title     : 'About'
+nav       : 'root'
+layout    : 'page'
+hideTitle : true
 ---
-
-## About Me

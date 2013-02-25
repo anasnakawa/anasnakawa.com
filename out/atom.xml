@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Anas Nakawa Blog</title>
+    <title>Anas Nakawa</title>
     <link href="http://anasnakawa.com/atom.xml" rel="self"/>
     <link href="http://anasnakawa.com"/>
-    <updated>2013-02-23T19:46:09.309Z</updated>
+    <updated>2013-02-25T18:15:51.226Z</updated>
     <id>http://anasnakawa.com</id>
     <author>
         <name>Anas Nakawa</name>
@@ -14,7 +14,7 @@
         <entry>
             <title>Blogging with Docpad</title>
             <link href="http://anasnakawa.com//posts/blogging-with-docpad"/>
-            <updated>2013-02-23T15:30:40.000Z</updated>
+            <updated>2013-02-25T18:15:15.000Z</updated>
             <id>http://anasnakawa.com//posts/blogging-with-docpad</id>
             <content type="html">&lt;p&gt;This is a &lt;strong&gt;blog post&lt;/strong&gt;&lt;/p&gt;
 &lt;pre class=&quot;highlighted&quot;&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// this should be highlighted&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;

@@ -3,6 +3,10 @@ layout: default
 ---
 
 <article id="page" class="page">
+  
+  <% if !@document.meta.hideTitle: %>
 	<h1><%= @document.title %></h1>
+  <% end %>
 	<div class="page-content"><%- @content %></div>
+	
 </article>

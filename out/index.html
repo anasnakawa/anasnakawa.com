@@ -14,7 +14,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
     <!-- Our site title and description -->
-    <title>Home | Anas Nakawa Blog</title>
+    <title>Home | Anas Nakawa</title>
     <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title." />
     <meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website" />
     <meta name="author" content="Anas Nakawa" />
@@ -92,7 +92,9 @@
             
             <div class="app-article-wrap">
               
-              <section id="page" class="page">
+              <article id="page" class="page">
+  
+  
     <div class="page-content">
 
 
@@ -103,15 +105,15 @@
       <header>
       
       <a href="/posts/blogging-with-docpad">
-        <h3>Blogging with Docpad</h3>
+        <h1>Blogging with Docpad</h1>
       </a>
 
       <hr />
       
       <div class="app-tags">
-        <time class="label app-tag" pubdate datetime="Sat Feb 23 2013 19:30:40 GMT+0400 (GST)">
+        <time class="label app-tag" pubdate datetime="Mon Feb 25 2013 22:15:15 GMT+0400 (GST)">
             <i class="icon-calendar"></i> 
-            <span class="js-format-date" data-date="Sat Feb 23 2013 19:30:40 GMT+0400 (GST)"></span>
+            <span class="js-format-date" data-date="Mon Feb 25 2013 22:15:15 GMT+0400 (GST)"></span>
         </time>
         
             <a href="#">
@@ -145,7 +147,8 @@
   
 
 </article></div>
-</section>
+    
+</article>
             
             </div>
           
@@ -209,6 +212,40 @@
   
   
     
-    <script defer="defer"  src="/js/vendor/modernizr.js"></script><script defer="defer"  src="/components/jquery/jquery.js"></script><script defer="defer"  src="/components/jquery-backstretch/jquery.backstretch.js"></script><script defer="defer"  src="/components/bootstrap-sass/js/bootstrap-tooltip.js"></script><script defer="defer"  src="/js/config.js"></script><script defer="defer"  src="/js/plugins.js"></script><script defer="defer"  src="/js/main.js"></script>
+    <script >(function(){
+	// Did we just livereload?
+var log = true && localStorage && console && console.log && true;
+if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
+	localStorage.removeItem('/docpad-livereload/reloaded');
+	console.log('LiveReloaded at', new Date())
+}
+
+// Listen for the regenerated event
+// and perform a reload of the page when the event occurs
+var listen = function(){
+	var socket = io.connect('/docpad-livereload');
+	socket.on('regenerated',function(){
+		if ( log ) {
+	localStorage.setItem('/docpad-livereload/reloaded', 'yes');
+}
+document.location.reload();
+	});
+};
+	if ( typeof io !== 'undefined' ) {
+		listen();
+	} else {
+		// Inject socket.io into our page then listen once loaded
+var inject = function(){
+	var t = document.createElement('script');
+	t.type = 'text/javascript';
+	t.async = true;
+	t.src = '/socket.io/socket.io.js';
+	t.onload = listen;
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(t,s);
+};
+		inject();
+	}
+})();</script><script defer="defer"  src="/js/vendor/modernizr.js"></script><script defer="defer"  src="/components/jquery/jquery.js"></script><script defer="defer"  src="/components/jquery-backstretch/jquery.backstretch.js"></script><script defer="defer"  src="/components/bootstrap-sass/js/bootstrap-tooltip.js"></script><script defer="defer"  src="/js/config.js"></script><script defer="defer"  src="/js/plugins.js"></script><script defer="defer"  src="/js/main.js"></script>
 </body>
 </html>
