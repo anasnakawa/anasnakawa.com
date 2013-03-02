@@ -72,12 +72,12 @@
             <ul class="nav nav-pills">
               <li typeof="sioc:Page" about="/"><a href="/">Home</a></li>
               
-                <li typeof="sioc:Page" about="/about" class="">
-                  <a href="/about" property="dc:title">About</a>
-                </li>
-              
                 <li typeof="sioc:Page" about="/contact" class="">
                   <a href="/contact" property="dc:title">Contact</a>
+                </li>
+              
+                <li typeof="sioc:Page" about="/about" class="">
+                  <a href="/about" property="dc:title">About</a>
                 </li>
               
             </ul>
@@ -160,5 +160,19 @@
   
     
     <script defer="defer"  src="/js/vendor/modernizr.js"></script><script defer="defer"  src="/components/jquery/jquery.js"></script><script defer="defer"  src="/components/jquery-backstretch/jquery.backstretch.js"></script><script defer="defer"  src="/components/bootstrap-sass/js/bootstrap-tooltip.js"></script><script defer="defer"  src="/js/config.js"></script><script defer="defer"  src="/js/plugins.js"></script><script defer="defer"  src="/js/main.js"></script>
+    
+    <!-- google analytics -->
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-38962094-1']);
+    _gaq.push(['_setDomainName', 'anasnakawa.com']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
 </html>
