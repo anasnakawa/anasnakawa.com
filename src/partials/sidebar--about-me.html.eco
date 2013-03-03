@@ -28,7 +28,7 @@
 <div class="app-social-links clearfix">
   <nav>
     <ul>
-      <li><a data-toggle="tooltip" title="RSS Feed" class="icon-social-rss js-tooltip" href="#">&nbsp;</a></li>
+      <li><a data-toggle="tooltip" title="RSS Feed" class="icon-social-rss js-tooltip" href="//feeds.feedburner.com/AnasNakawa">&nbsp;</a></li>
       <li><a data-toggle="tooltip" title="Twitter" class="icon-social-twitter js-tooltip" href="//twitter.com/anasnakawa">&nbsp;</a></li>
       <li><a data-toggle="tooltip" title="Github" class="icon-social-github js-tooltip" href="//github.com/anasnakawa">&nbsp;</a></li>
       <li><a data-toggle="tooltip" title="Dribbble" class="icon-social-dribbble js-tooltip" href="//dribbble.com/anasnakawa">&nbsp;</a></li>
