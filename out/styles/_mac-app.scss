@@ -285,6 +285,10 @@ $app-chrome-custom-font: "Lato", sans-serif;
   
   text-shadow: 0 1px 0 white;
   
+  .img-wrap {
+    width: 150px;
+  }
+  
   hr {
     @include margin-right( -28px );
     border-color: #D0D5DB transparent #F2F4F7;
@@ -310,12 +314,6 @@ $app-chrome-custom-font: "Lato", sans-serif;
     @include margin-right( -30px );
     padding-left: 10px;    
     padding-right: 10px;    
-  }
-  
-  img {
-    border: 1px solid #999999;
-    @include border-radius( 3px );
-    @include box-shadow( 0 1px 0 white );
   }
   
   p {
@@ -378,4 +376,28 @@ $app-chrome-custom-font: "Lato", sans-serif;
 .app-footer {
   margin-top: 20px;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+// common utilities
+// ------------------------------
+.img-wrap {
+  border: 1px solid #333333;
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  @include border-radius( 3px );
+  @include box-shadow( 0 1px 0 white );
+  
+  &:after {
+    content: ' ';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    @include box-shadow(
+      0 1px 0 rgba(255, 255, 255, 0.2) inset, 
+      0 11px 1px -10px rgba(255, 255, 255, 0.3) inset
+    );
+  }
 }

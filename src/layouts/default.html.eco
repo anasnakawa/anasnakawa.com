@@ -71,7 +71,7 @@
           <nav class="app-chrome-nav">
             <ul class="nav nav-pills">
               <li typeof="sioc:Page" about="/"><a href="/">Home</a></li>
-              <% for rootPage in @getDatabase().findAll(nav: 'root', [order: 1]).toJSON(): %>
+              <% for rootPage in @getDatabase().findAll(nav: 'root', hidden: $exists: false, [order: 1]).toJSON(): %>
                 <li typeof="sioc:Page" about="<%= rootPage.url %>" class="<%= 'active'  if @document.url is rootPage.url %>">
                   <a href="<%= rootPage.url %>" property="dc:title"><%= rootPage.title %></a>
                 </li>

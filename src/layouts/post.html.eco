@@ -11,9 +11,9 @@ layout: default
     <hr />
 
     <div class="app-tags">
-      <time class="label app-tag" pubdate datetime="<%= @document.date %>">
+      <time class="label app-tag" pubdate datetime="<%= @document.meta.date %>">
         <i class="icon-calendar"></i> 
-        <span class="js-format-date" data-date="<%= @document.date %>"></span>
+        <span class="js-format-date" data-date="<%= @document.meta.date %>"></span>
       </time>
 
       <% if @document.meta.tags: %>
