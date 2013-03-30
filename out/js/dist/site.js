@@ -10843,7 +10843,7 @@ if ( typeof define === "function" && define.amd && define.amd.jQuery ) {
         return this.each(function() {
             var $self = $( this )
             , months = [
-                'Jan'   // 1
+                  'Jan' // 1
                 , 'Feb' // 2
                 , 'Mar' // 3
                 , 'Apr' // 4
