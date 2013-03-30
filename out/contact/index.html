@@ -15,8 +15,8 @@
 
     <!-- Our site title and description -->
     <title>Contact | Anas Nakawa</title>
-    <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title." />
-    <meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website" />
+    <meta name="description" content="Front-end developer, designer &amp; open source geek from Jordan, living in Dubai" />
+    <meta name="keywords" content="javascript, html, html5, css, css3, jquery, node, nodejs, js, front-end, developer, designer, open source, geek, jordan, dubai, amman, u.a.e, uae, emirates, photoshop, github, web, development" />
     <meta name="author" content="Anas Nakawa" />
 
     <!-- Output DocPad produced meta elements -->
@@ -47,7 +47,7 @@
   
     
     
-    <link rel="stylesheet" href="/components/bootstrap-sass/bootstrap-2.3.0.css" /><link rel="stylesheet" href="/components/bootstrap-sass/bootstrap-responsive-2.3.0.css" /><link rel="stylesheet" href="/components/font-awesome/css/font-awesome.css" /><link rel="stylesheet" href="/components/highlight.js/src/styles/monokai.css" /><link rel="stylesheet" href="/styles/main-ltr.css" />
+    <link  rel="stylesheet" href="/css/bootstrap-custom.css" /><link  rel="stylesheet" href="/css/bootstrap-responsive-custom.css" /><link  rel="stylesheet" href="/components/font-awesome/css/font-awesome.css" /><link  rel="stylesheet" href="/components/highlight.js/src/styles/monokai.css" /><link  rel="stylesheet" href="/css/main-ltr.css" />
 </head>
 <body>
   
@@ -165,7 +165,41 @@
   
   
     
-    <script defer="defer"  src="/js/vendor/modernizr.js"></script><script defer="defer"  src="/components/jquery/jquery.js"></script><script defer="defer"  src="/components/jquery-backstretch/jquery.backstretch.js"></script><script defer="defer"  src="/components/bootstrap-sass/js/bootstrap-tooltip.js"></script><script defer="defer"  src="/js/config.js"></script><script defer="defer"  src="/js/plugins.js"></script><script defer="defer"  src="/js/main.js"></script>
+    <script >(function(){
+	// Did we just livereload?
+var log = true && localStorage && console && console.log && true;
+if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
+	localStorage.removeItem('/docpad-livereload/reloaded');
+	console.log('LiveReloaded at', new Date())
+}
+
+// Listen for the regenerated event
+// and perform a reload of the page when the event occurs
+var listen = function(){
+	var socket = io.connect('/docpad-livereload');
+	socket.on('regenerated',function(){
+		if ( log ) {
+	localStorage.setItem('/docpad-livereload/reloaded', 'yes');
+}
+document.location.reload();
+	});
+};
+	if ( typeof io !== 'undefined' ) {
+		listen();
+	} else {
+		// Inject socket.io into our page then listen once loaded
+var inject = function(){
+	var t = document.createElement('script');
+	t.type = 'text/javascript';
+	t.async = true;
+	t.src = '/socket.io/socket.io.js';
+	t.onload = listen;
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(t,s);
+};
+		inject();
+	}
+})();</script><script defer="defer"  src="/js/vendor/modernizr.js"></script><script defer="defer"  src="/components/jquery/jquery.js"></script><script defer="defer"  src="/components/jquery-backstretch/jquery.backstretch.js"></script><script defer="defer"  src="/components/bootstrap-sass/js/bootstrap-tooltip.js"></script><script defer="defer"  src="/js/config.js"></script><script defer="defer"  src="/js/plugins.js"></script><script defer="defer"  src="/js/main.js"></script>
     
     <!-- google analytics -->
     <script type="text/javascript">

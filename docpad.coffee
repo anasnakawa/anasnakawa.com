@@ -26,12 +26,13 @@ docpadConfig = {
 
 			# The website description (for SEO)
 			description: """
-				When your website appears in search results in say Google, the text here will be shown underneath your website's title.
+				Front-end developer, designer & open source geek from Jordan, living in Dubai
 				"""
 
 			# The website keywords (for SEO) separated by commas
 			keywords: """
-				place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website
+				javascript, html, html5, css, css3, jquery, node, nodejs, js, front-end, developer, designer, open source, geek, 
+				jordan, dubai, amman, u.a.e, uae, emirates, photoshop, github, web, development
 				"""
 
 			# The website author's name

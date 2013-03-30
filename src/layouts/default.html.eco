@@ -42,11 +42,11 @@
 
 	<!-- Styles -->
 	<% styles = [] %>
-	<% styles.push( '/components/bootstrap-sass/bootstrap-2.3.0.css' ) %>
-	<% styles.push( '/components/bootstrap-sass/bootstrap-responsive-2.3.0.css' ) %>
+	<% styles.push( '/css/bootstrap-custom.css' ) %>
+	<% styles.push( '/css/bootstrap-responsive-custom.css' ) %>
   <% styles.push( '/components/font-awesome/css/font-awesome.css' ) %>
 	<% styles.push( '/components/highlight.js/src/styles/monokai.css' ) %>
-	<% styles.push( '/styles/main-ltr.css' ) %>
+	<% styles.push( '/css/main-ltr.css' ) %>
 	<%- @getBlock('styles').add( styles ).toHTML() %>
 </head>
 <body>
