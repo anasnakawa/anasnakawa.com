@@ -44,10 +44,8 @@
     
     
     
-  
     
-    
-    <link  rel="stylesheet" href="/css/bootstrap-custom.css" /><link  rel="stylesheet" href="/css/bootstrap-responsive-custom.css" /><link  rel="stylesheet" href="/components/font-awesome/css/font-awesome.css" /><link  rel="stylesheet" href="/components/highlight.js/src/styles/monokai.css" /><link  rel="stylesheet" href="/css/main-ltr.css" />
+    <link  rel="stylesheet" href="/css/bootstrap-custom.css" /><link  rel="stylesheet" href="/css/bootstrap-responsive-custom.css" /><link  rel="stylesheet" href="/css/main-ltr.css" />
 </head>
 <body>
   
@@ -127,20 +125,6 @@
 </div>
 
 <hr />
-
-<div class="app-social-links clearfix">
-  <nav>
-    <ul>
-      <li><a data-toggle="tooltip" title="RSS Feed" class="icon-social-rss js-tooltip" href="//feeds.feedburner.com/AnasNakawa">&nbsp;</a></li>
-      <li><a data-toggle="tooltip" title="Twitter" class="icon-social-twitter js-tooltip" href="//twitter.com/anasnakawa">&nbsp;</a></li>
-      <li><a data-toggle="tooltip" title="Github" class="icon-social-github js-tooltip" href="//github.com/anasnakawa">&nbsp;</a></li>
-      <li><a data-toggle="tooltip" title="Dribbble" class="icon-social-dribbble js-tooltip" href="//dribbble.com/anasnakawa">&nbsp;</a></li>
-      <li><a data-toggle="tooltip" title="Google+" class="icon-social-plus js-tooltip" href="//plus.google.com/108491441707446208924">&nbsp;</a></li>
-    </ul>
-  </nav>
-</div>
-
-<hr />
             
           </aside>
           
@@ -149,8 +133,19 @@
       </div>
       
       <footer class="app-footer span10 offset1">
-        <p class="center">built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on 
-        <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa 2013 </p>
+        <p class="near">
+          built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on 
+          <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa 2013 
+        </p>
+        
+        <ul class="nav-raw far">
+          <li><a title="RSS Feed" href="//feeds.feedburner.com/AnasNakawa">Rss</a></li>
+          <li><a title="Twitter" href="//twitter.com/anasnakawa">Twitter</a></li>
+          <li><a title="Github" href="//github.com/anasnakawa">Github</a></li>
+          <li><a title="Dribbble" href="//dribbble.com/anasnakawa">Dribbble</a></li>
+          <li><a title="Google+" href="//plus.google.com/108491441707446208924">Google+</a></li>
+        </ul>
+        
       </footer>
       
     </div>
@@ -158,48 +153,10 @@
     
     <!-- Scripts -->
   
-    
-    
-    
-    
-  
   
     
-    <script >(function(){
-	// Did we just livereload?
-var log = true && localStorage && console && console.log && true;
-if ( log && localStorage.getItem('/docpad-livereload/reloaded') === 'yes' ) {
-	localStorage.removeItem('/docpad-livereload/reloaded');
-	console.log('LiveReloaded at', new Date())
-}
-
-// Listen for the regenerated event
-// and perform a reload of the page when the event occurs
-var listen = function(){
-	var socket = io.connect('/docpad-livereload');
-	socket.on('regenerated',function(){
-		if ( log ) {
-	localStorage.setItem('/docpad-livereload/reloaded', 'yes');
-}
-document.location.reload();
-	});
-};
-	if ( typeof io !== 'undefined' ) {
-		listen();
-	} else {
-		// Inject socket.io into our page then listen once loaded
-var inject = function(){
-	var t = document.createElement('script');
-	t.type = 'text/javascript';
-	t.async = true;
-	t.src = '/socket.io/socket.io.js';
-	t.onload = listen;
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(t,s);
-};
-		inject();
-	}
-})();</script><script defer="defer"  src="/js/vendor/modernizr.js"></script><script defer="defer"  src="/components/jquery/jquery.js"></script><script defer="defer"  src="/components/jquery-backstretch/jquery.backstretch.js"></script><script defer="defer"  src="/components/bootstrap-sass/js/bootstrap-tooltip.js"></script><script defer="defer"  src="/js/config.js"></script><script defer="defer"  src="/js/plugins.js"></script><script defer="defer"  src="/js/main.js"></script>
+  
+    <script defer="defer"  src="/js/dist/site.min.js"></script>
     
     <!-- google analytics -->
     <script type="text/javascript">

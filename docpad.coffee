@@ -40,6 +40,9 @@ docpadConfig = {
 
 			# The website author's email
 			email: "anas.nakawa@gmail.com"
+			
+			# development mode ( dev or build )
+			mode: "build"
       
 
 

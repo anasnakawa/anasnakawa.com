@@ -41,8 +41,25 @@ body {
   margin-top: 40px;
 }
 
+.nav-raw {
+  list-style-type: none;
+  
+  li {
+    @include float( left );
+    padding: 0 10px;
+  }
+}
+
 // helpers
 // -------
 .center {
   text-align: center;
+}
+
+.near {
+  @include float( left );
+}
+
+.far {
+  @include float( right );
 }

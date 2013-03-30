@@ -44,8 +44,6 @@
 	<% styles = [] %>
 	<% styles.push( '/css/bootstrap-custom.css' ) %>
 	<% styles.push( '/css/bootstrap-responsive-custom.css' ) %>
-  <% styles.push( '/components/font-awesome/css/font-awesome.css' ) %>
-	<% styles.push( '/components/highlight.js/src/styles/monokai.css' ) %>
 	<% styles.push( '/css/main-ltr.css' ) %>
 	<%- @getBlock('styles').add( styles ).toHTML() %>
 </head>
@@ -106,8 +104,19 @@
       </div>
       
       <footer class="app-footer span10 offset1">
-        <p class="center">built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on 
-        <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa <%= new Date().getFullYear() %> </p>
+        <p class="near">
+          built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on 
+          <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa <%= new Date().getFullYear() %> 
+        </p>
+        
+        <ul class="nav-raw far">
+          <li><a title="RSS Feed" href="//feeds.feedburner.com/AnasNakawa">Rss</a></li>
+          <li><a title="Twitter" href="//twitter.com/anasnakawa">Twitter</a></li>
+          <li><a title="Github" href="//github.com/anasnakawa">Github</a></li>
+          <li><a title="Dribbble" href="//dribbble.com/anasnakawa">Dribbble</a></li>
+          <li><a title="Google+" href="//plus.google.com/108491441707446208924">Google+</a></li>
+        </ul>
+        
       </footer>
       
     </div>
@@ -115,13 +124,16 @@
 	
 	<!-- Scripts -->
   <% scripts = [] %>
-	<% scripts.push( '/js/vendor/modernizr.js' ) %>
-	<% scripts.push( '/components/jquery/jquery.js' ) %>
-	<% scripts.push( '/components/jquery-backstretch/jquery.backstretch.js' ) %>
-	<% scripts.push( '/components/bootstrap-sass/js/bootstrap-tooltip.js' ) %>
-  <% scripts.push( '/js/config.js' ) %>
-  <% scripts.push( '/js/plugins.js' ) %>
-	<% scripts.push( '/js/main.js' ) %>
+  <% if @site.mode is 'dev': %>
+  	<% scripts.push( '/js/vendor/modernizr.js' ) %>
+  	<% scripts.push( '/components/jquery/jquery.js' ) %>
+  	<% scripts.push( '/components/jquery-backstretch/jquery.backstretch.js' ) %>
+  	<% scripts.push( '/components/bootstrap-sass/js/bootstrap-tooltip.js' ) %>
+    <% scripts.push( '/js/plugins.js' ) %>
+  	<% scripts.push( '/js/main.js' ) %>
+  <% else: %>
+    <% scripts.push( '/js/dist/site.min.js' )%>
+  <% end %>
 	<%- @getBlock('scripts').add( scripts ).toHTML() %>
 	
 	<!-- google analytics -->
