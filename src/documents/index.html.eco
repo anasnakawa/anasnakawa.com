@@ -24,10 +24,8 @@ hideTitle : true
         	<i class="icon-calendar"></i> 
         	<span class="js-format-date" data-date="<%= document.date %>"></span>
         </time>
-        <% for tag in document.meta.tags: %>
-        	<a href="#">
-        		<span class="label app-tag"><%= tag %></span>
-        	</a>
+        <% if document.meta.tags: %>
+          <%- @partial( 'post--tags.html.eco', { tags: document.meta.tags } ) %>
         <% end %>
       </div>
       

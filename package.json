@@ -40,7 +40,8 @@
     "docpad-plugin-text": "2.x",
     "docpad-plugin-sass": "~2.4.2",
     "docpad-plugin-highlightjs": "~2.1.1",
-    "docpad-plugin-related": "~2.0.4"
+    "docpad-plugin-related": "~2.0.4",
+    "docpad-plugin-tagging": "~2.0.1"
   },
   "devDependencies": {
     "docpad-plugin-livereload": "2.x",

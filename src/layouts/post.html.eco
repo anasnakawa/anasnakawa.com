@@ -16,13 +16,7 @@ layout: default
       </time>
 
       <% if @document.meta.tags: %>
-
-        <% for tag in @document.meta.tags: %>
-          <a href="#">
-            <span class="label app-tag"><%= tag %></span>
-          </a>
-        <% end %>
-
+        <%- @partial( 'post--tags.html.eco', { tags: @document.meta.tags } ) %>
       <% end %>
     </div>
     

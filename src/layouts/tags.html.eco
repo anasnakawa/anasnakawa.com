@@ -1,0 +1,13 @@
+---
+layout: default
+---
+
+<h1>Posts Tagged with: '<%= @document.tag %>'</h1>
+
+<hr />
+
+
+  <% for doc in @getCollection('documents').findAll({tags: '$in': @document.tag}).toJSON(): %>
+      <h3><a href="<%= doc.url %>"><%= doc.title %></a></h3>
+      <hr />
+  <% end %>

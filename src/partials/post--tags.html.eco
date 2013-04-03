@@ -1,0 +1,6 @@
+<!-- displaying a list of tags with their corresponding links -->
+<% for tag in @tags: %>
+  <a href="<%= '/tags/' + tag + '.html' %>">
+    <span class="label app-tag"><%= tag %></span>
+  </a>
+<% end %>
