@@ -8,20 +8,14 @@
 // ------------------------------
 // table of content
 // ------------------------------
-// global variables
 // typography
 // base
 // ------------------------------
 
-// global variables
-// ----------------
-$experimental-support-for-svg: true;
-
-
 // typography
 // ----------
 body {
-  font-family: 'Lato', sans-serif;
+  font-family: $mac-app-font-primary, $mac-app-font-secondary;
 }
 
 .highlighted {

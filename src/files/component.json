@@ -1,0 +1,7 @@
+{
+  "name": "files",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery-github": "git://github.com/zenorocha/jquery-github.git#~0.2.5"
+  }
+}
