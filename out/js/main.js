@@ -22,7 +22,9 @@
   
   // stretching background
   // ---------------------
-  $.backstretch('/img/dawn-bg.jpg');
+  if( $(window).width() < 767 ) {
+    $.backstretch('/img/dawn-bg.jpg');
+  }
   
   // bootstrap tooltip
   // -----------------
@@ -42,10 +44,12 @@
       }
 
   });
-  // }();
 
   // format dates
   // ------------
   $('.js-format-date').formatDate();
+  
+  // github repos
+  $('.repos [data-repo]').github();
   
 })( jQuery );

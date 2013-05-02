@@ -130,6 +130,7 @@
   	<% scripts.push( '/components/jquery/jquery.js' ) %>
   	<% scripts.push( '/components/jquery-backstretch/jquery.backstretch.js' ) %>
   	<% scripts.push( '/components/bootstrap-sass/js/bootstrap-tooltip.js' ) %>
+  	<% scripts.push( '/components/jquery-github/dist/jquery.github.js' ) %>
     <% scripts.push( '/js/plugins.js' ) %>
   	<% scripts.push( '/js/main.js' ) %>
   <% else: %>

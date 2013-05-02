@@ -31,7 +31,7 @@ $('[data-repo]').github();
 
 And that's it \o/
 
-[Check the full example here](https://github.com/zenorocha/jquery-github/blob/master/demo/index.html)
+[Check full example's source code](https://github.com/zenorocha/jquery-github/blob/master/demo/index.html).
 
 ## Forks
 
@@ -45,30 +45,41 @@ Prefer a non-jquery version with pure JavaScript? No problem, [@ricardobeat](htt
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
 
+Also remember to follow [jQuery's Code Style](http://contribute.jquery.org/style-guide/js/).
+
 ## History
 
+* v0.2.9 May 1, 2013
+    * Fixed urls
+* v0.2.8 April 30, 2013
+    * Followed jQuery's core style guide
+* v0.2.7 April 29, 2013
+    * Code refactoring
+    * Upgraded Grunt from v0.3 to v0.4
+* v0.2.6 March 14, 2013
+    * Updated to responsive design
 * v0.2.5 March 01, 2013
-  * Added Grunt and integrated it with Travis
-  * Added lint task
-  * Added minify task
+    * Added Grunt and integrated it with Travis
+    * Added lint task
+    * Added minify task
 * v0.2.4 January 17, 2013
-  * Renamed from `jquery-github-repos` to `jquery-github`
+    * Renamed from `jquery-github-repos` to `jquery-github`
 * v0.2.3 January 17, 2013
-  * Added to jQuery Plugins Registry
-  * Updated to jQuery v1.9
+    * Added to jQuery Plugins Registry
+    * Updated to jQuery v1.9
 * v0.2.2 January 15, 2013
-  * Fixed "Last commit" date
-  * Cached repo data using sessionStorage
-  * Added error message if API exceeds its limits
+    * Fixed "Last commit" date
+    * Cached repo data using sessionStorage
+    * Added error message if API exceeds its limits
 * v0.2.1 January 13, 2013
-  * Added live demo
-  * Replaced single images for a sprite
-  * Added minified version
+    * Added live demo
+    * Replaced single images for a sprite
+    * Added minified version
 * v0.2 September 11, 2012
-  * Code wrapped into a jQuery plugin
-  * Demonstration page created
+    * Code wrapped into a jQuery plugin
+    * Demonstration page created
 * v0.1 September 10, 2012
-  * Initial commit
+    * Initial commit
 
 ## Credits
 

@@ -24,6 +24,7 @@ module.exports = function(grunt) {
     temp.push( componentsDir + 'jquery/jquery.js' );
     temp.push( componentsDir + 'jquery-backstretch/jquery.backstretch.js' );
     temp.push( componentsDir + 'bootstrap-sass/js/bootstrap-tooltip.js' );
+    temp.push( componentsDir + 'jquery-github/dist/jquery.github.js' );
     temp.push( jsDir + '/plugins.js' );
     temp.push( jsDir + '/main.js' );
     

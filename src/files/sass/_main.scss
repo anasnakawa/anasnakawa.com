@@ -17,11 +17,18 @@
 // compass
 @import "compass/css3";
 
+// helpers
+@import "media-queries";
+
 // plugins
 @import "monokai";
+@import "jquery-github";
 
 // site styles
 @import "variables";
 @import "base";
 @import "override";
 @import "mac-app";
+
+// site pages
+@import "projects";

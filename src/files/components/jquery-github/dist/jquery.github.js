@@ -1,136 +1,163 @@
 /*
- *  jQuery Github - v0.2.5
+ *  jQuery Github - v0.2.9
  *  A jQuery plugin to display your Github Repositories.
  *  https://github.com/zenorocha/jquery-github/
-
+ *
  *  Copyright (c) 2013
  *  MIT License
  */
+;( function ( $, window, undefined ) {
 
-// the semi-colon before function invocation is a safety net against concatenated
-// scripts and/or other plugins which may not be closed properly.
-;(function ( $, window, undefined ) {
+	var pluginName = "github",
+			document   = window.document,
+			defaults   = {
+				propertyName: "value"
+			};
 
-    // undefined is used here as the undefined global variable in ECMAScript 3 is
-    // mutable (ie. it can be changed by someone else). undefined isn't really being
-    // passed in so we can ensure the value of it is truly undefined. In ES5, undefined
-    // can no longer be modified.
+	function Plugin( element, options ) {
+		var self = this;
 
-    // window is passed through as local variable rather than global
-    // as this (slightly) quickens the resolution process and can be more efficiently
-    // minified (especially when both are regularly referenced in your plugin).
+		self.element    = element;
+		self.$container = $( element );
+		self.repo       = self.$container.attr( "data-repo" );
 
-    // Create the defaults once
-    var pluginName = 'github',
-        document = window.document,
-        defaults = {
-            propertyName: "value"
-        };
+		self.options = $.extend( {}, defaults, options ) ;
 
-    // The actual plugin constructor
-    function Plugin( element, options ) {
-        this.element = element;
-        this.$container = $(element);
-        this.repo = this.$container.attr("data-repo");
+		self._defaults = defaults;
+		self._name     = pluginName;
 
-        // jQuery has an extend method which merges the contents of two or
-        // more objects, storing the result in the first object. The first object
-        // is generally empty as we don't want to alter the default options for
-        // future instances of the plugin
-        this.options = $.extend( {}, defaults, options) ;
+		self.init();
+	}
 
-        this._defaults = defaults;
-        this._name = pluginName;
+	// Initializer
+	Plugin.prototype.init = function () {
+		var self   = this,
+				cached = self.getCache();
 
-        this.init();
-    }
+		if ( cached !== null ) {
+			self.applyTemplate( JSON.parse( cached ) );
+		}
+		else {
+			self.requestData( self.repo );
+		}
+	};
 
-    Plugin.prototype.init = function () {
+	// Apply results to HTML template
+	Plugin.prototype.applyTemplate = function ( repo ) {
+		var self  = this,
+				$widget = self.parseTemplate( repo );
 
-      var self = this;
-      var cached;
+		$widget.appendTo( self.$container );
+	};
 
-      // Attempt to get cached repo data
-      if (window.sessionStorage) {
-        cached = sessionStorage.getItem('gh-repos:' + this.repo);
-      }
+	// Stores repostories in sessionStorage if available
+	Plugin.prototype.cacheResults = function ( result_data ) {
+		var self = this;
 
-      if (cached !== null) {
-        self.applyTemplate(JSON.parse(cached));
-      }
-      else {
+		// Cache data
+		if ( window.sessionStorage ) {
+			window.sessionStorage.setItem( "gh-repos:" + self.repo, JSON.stringify( result_data ) );
+		}
+	};
 
-        $.ajax({
-          url: 'https://api.github.com/repos/' + this.repo,
-          dataType: 'jsonp',
-          success: function(results){
+	// Grab cached results
+	Plugin.prototype.getCache = function() {
+		var self = this;
 
-            // Handle API failures
-            if (results.meta.status >= 400 && results.data.message){
-                console.warn(results.data.message);
-                return;
-            }
-            else {
+		if ( window.sessionStorage ) {
+			return window.sessionStorage.getItem( "gh-repos:" + self.repo );
+		}
+		else {
+			return false;
+		}
+	};
 
-              self.applyTemplate(results.data);
+	// Handle Errors requests
+	Plugin.prototype.handlerErrorRequests = function ( result_data ) {
+		var self = this;
 
-              // Cache data
-              if (window.sessionStorage) {
-                sessionStorage.setItem('gh-repos:' + self.repo, JSON.stringify(results.data));
-              }
+		console.warn( result_data.message );
+		return;
+	};
 
-            }
-          }
-        });
+	// Handle Successful request
+	Plugin.prototype.handlerSuccessfulRequest = function ( result_data ) {
+		var self = this;
 
-      }
+		self.applyTemplate( result_data );
+		self.cacheResults( result_data );
+	};
 
-    };
+	// Parses Pushed date with date format
+	Plugin.prototype.parsePushedDate = function ( pushed_at ) {
+		var self = this,
+				date = new Date( pushed_at );
 
-    Plugin.prototype.applyTemplate = function (repo) {
+		return date.getDate() + "/" + ( date.getMonth() + 1 ) + "/" + date.getFullYear();
+	};
 
-      var self = this;
-      var date = new Date(repo.pushed_at);
-      var pushed_at = date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear();
+	// Parses repository URL to be friendly
+	Plugin.prototype.parseRepositoryURL = function ( url ) {
+		var self = this;
 
-      var $widget = $($.parseHTML(' \
-        <div class="github-box">  \
-            <div class="github-box-header"> \
-                <h3> \
-                    <a href="' + repo.url.replace('api.','').replace('repos/','') + '">' + repo.name + '</a> \
-                </h3> \
-                <div class="github-stats"> \
-                    <a class="repo-watchers" href="' + repo.url.replace('api.','').replace('repos/','') + '/watchers">' + repo.watchers + '</a> \
-                    <a class="repo-forks" href="' + repo.url.replace('api.','').replace('repos/','') + '/forks">' + repo.forks + '</a> \
-                </div> \
-            </div> \
-            <div class="github-box-content"> \
-                <p>' + repo.description + ' &mdash; <a href="' + repo.url.replace('api.','').replace('repos/','') + '#readme">Read More</a></p> \
-            </div> \
-            <div class="github-box-download"> \
-                <p class="repo-update">Latest commit to <strong>master</strong> on ' + pushed_at + '</p> \
-                <a class="repo-download" href="' + repo.url.replace('api.','').replace('repos/','') + '/zipball/master">Download as zip</a> \
-            </div> \
-        </div> \
-      '));
+		return url.replace( "api.", "" ).replace( "repos/", "" );
+	};
 
-      self.appendTemplate($widget);
+	// Parses HTML template
+	Plugin.prototype.parseTemplate = function ( repo ) {
+		var self      = this,
+				pushed_at = self.parsePushedDate( repo.pushed_at ),
+				repo_url  = self.parseRepositoryURL( repo.url );
 
-    };
+		return $( $.parseHTML(" \
+			<div class='github-box'>  \
+				<div class='github-box-header'> \
+					<h3> \
+						<a href='" + repo_url + "'>" + repo.name + "</a> \
+					</h3> \
+					<div class='github-stats'> \
+						<a class='repo-watchers' href='" + repo_url + "/watchers'>" + repo.watchers + "</a> \
+						<a class='repo-forks' href='" + repo_url + "/network'>" + repo.forks + "</a> \
+					</div> \
+				</div> \
+				<div class='github-box-content'> \
+					<p>" + repo.description + " &mdash; <a href='" + repo_url + "#readme'>Read More</a></p> \
+				</div> \
+				<div class='github-box-download'> \
+					<p class='repo-update'>Latest commit to <strong>master</strong> on " + pushed_at + "</p> \
+					<a class='repo-download' href='" + repo_url + "/zipball/master'>Download as zip</a> \
+				</div> \
+			</div> \
+		  ") );
+	};
 
-    Plugin.prototype.appendTemplate = function ($widget) {
-      var self = this;
-      $widget.appendTo(self.$container);
-    };
+	// Request repositories from Github
+	Plugin.prototype.requestData = function ( repo ) {
+		var self = this;
 
-    // A really lightweight plugin wrapper around the constructor,
-    // preventing against multiple instantiations
-    $.fn[pluginName] = function ( options ) {
-        return this.each(function () {
-            if (!$.data(this, 'plugin_' + pluginName)) {
-                $.data(this, 'plugin_' + pluginName, new Plugin( this, options ));
-            }
-        });
-    };
+		$.ajax({
+			url: "https://api.github.com/repos/" + repo,
+			dataType: "jsonp",
+			success: function( results ) {
+				var result_data = results.data;
 
-}(jQuery, window));
+				// Handle API failures
+				if ( results.meta.status >= 400 && result_data.message ) {
+					self.handlerErrorRequest();
+				}
+				else {
+					self.handlerSuccessfulRequest( result_data );
+				}
+			}
+		});
+	};
+
+	$.fn[ pluginName ] = function ( options ) {
+		return this.each(function () {
+			if ( !$.data( this, "plugin_" + pluginName ) ) {
+				$.data( this, "plugin_" + pluginName, new Plugin( this, options ) );
+			}
+		});
+	};
+
+}( jQuery, window ) );
