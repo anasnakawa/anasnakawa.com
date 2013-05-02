@@ -36,6 +36,7 @@
   background: none;
 }
 
+// responsive margin
 @include tablet-portrait-and-below {
   body {
     padding-left: 0;
@@ -43,6 +44,7 @@
     
     .container {
       margin-top: 0;
+      padding-top: 0;
     }
   }
 }

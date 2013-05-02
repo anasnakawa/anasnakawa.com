@@ -16,6 +16,8 @@
 // ----------
 body {
   font-family: $mac-app-font-primary, $mac-app-font-secondary;
+  @include background-image( linear-gradient(#8b9da9, #fff6e4) );
+  @include box-shadow( inset 0 0 100px hsla(0,0%,0%,.3) );
 }
 
 .highlighted {
@@ -32,7 +34,7 @@ body {
 // base
 // ----
 .container {
-  margin-top: 40px;
+  padding-top: 40px;
 }
 
 .nav-raw {

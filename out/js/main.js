@@ -20,12 +20,6 @@
   // es5 strict mode
   'use strict';
   
-  // stretching background
-  // ---------------------
-  if( $(window).width() < 767 ) {
-    $.backstretch('/img/dawn-bg.jpg');
-  }
-  
   // bootstrap tooltip
   // -----------------
   $('.js-tooltip').tooltip();
