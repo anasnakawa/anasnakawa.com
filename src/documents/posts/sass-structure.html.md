@@ -1,3 +1,3 @@
 * How can I organize my css files to be scalable and still easy to maintain for a large scale application ?
 
-let's divide our web application styles into these main categories:
+building a solid architecture for your stylesheets is similar to building a solid class model for a large scale app
