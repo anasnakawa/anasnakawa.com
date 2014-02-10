@@ -36,6 +36,8 @@ hideTitle : true
       	<%- document.contentRenderedWithoutLayouts %>
 
       </div>
+
+      <hr />
       
     </header>
 

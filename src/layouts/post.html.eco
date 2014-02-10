@@ -40,7 +40,7 @@ layout: default
 		<h3>Related Posts</h3>
 		<nav class="linklist">
 			<% for document in @document.relatedDocuments: %>
-				<li><span><%= document.date.toShortDateString() %></span>
+				<li><span><%= document.date %></span>
 				&raquo;
 				<a href="<%= document.url %>"><%= document.title %></a></li>
 			<% end %>

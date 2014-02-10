@@ -33,10 +33,8 @@
     "docpad-plugin-cleanurls": "2.x",
     "docpad-plugin-coffeescript": "2.x",
     "docpad-plugin-eco": "2.x",
-    "docpad-plugin-less": "2.x",
     "docpad-plugin-marked": "2.x",
     "docpad-plugin-partials": "2.x",
-    "docpad-plugin-stylus": "2.x",
     "docpad-plugin-text": "2.x",
     "docpad-plugin-sass": "~2.4.2",
     "docpad-plugin-highlightjs": "~2.1.1",
@@ -48,7 +46,9 @@
     "grunt": "~0.4.1",
     "grunt-contrib-uglify": "~0.2.0",
     "grunt-contrib-concat": "~0.1.3",
-    "grunt-recess": "~0.3.1"
+    "grunt-recess": "~0.3.1",
+    "grunt-contrib-connect": "~0.6.0",
+    "grunt-shell": "~0.6.4"
   },
   "main": "node_modules/docpad/bin/docpad-server"
 }

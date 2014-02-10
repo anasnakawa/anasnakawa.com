@@ -1,40 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <title>Anas Nakawa</title>
-    <link href="http://anasnakawa.com/atom.xml" rel="self"/>
-    <link href="http://anasnakawa.com"/>
-    <updated>2013-05-02T15:29:18.357Z</updated>
-    <id>http://anasnakawa.com</id>
-    <author>
-        <name>Anas Nakawa</name>
-        <email>anas.nakawa@gmail.com</email>
-    </author>
+	<title>Anas Nakawa</title>
+	<link href="http://anasnakawa.com/atom.xml" rel="self"/>
+	<link href="http://anasnakawa.com"/>
+	<updated>2014-02-10T09:29:14.713Z</updated>
+	<id>http://anasnakawa.com</id>
+	<author>
+		<name>Anas Nakawa</name>
+		<email>anas.nakawa@gmail.com</email>
+	</author>
 
-    
-        <entry>
-            <title>Blogging with Docpad</title>
-            <link href="http://anasnakawa.com//posts/blogging-with-docpad"/>
-            <updated>2013-03-02T22:00:00.000Z</updated>
-            <id>http://anasnakawa.com//posts/blogging-with-docpad</id>
-            <content type="html">&lt;p&gt;it has been a while since my last blog post, which happened over 2 years ago..  &lt;/p&gt;
+	
+		<entry>
+			<title>Resetting Knockout Observables</title>
+			<link href="http://anasnakawa.com//posts/resetting-knockout-observables"/>
+			<updated>2014-02-09T20:00:00.000Z</updated>
+			<id>http://anasnakawa.com//posts/resetting-knockout-observables</id>
+			<content type="html">&lt;p&gt;Qoute: don&amp;#39;t repeat yourself, if your repeating yourself, you&amp;#39;re doing it wrong&lt;/p&gt;
+&lt;p&gt;A regular lifecycle for a given model in any application is that it will get initialized ( sometimes with an initial value )
+then it will get manipulated with some data, at the end of the module lifecycle, a model should be resetted to its default value so it won&amp;#39;t display irrelevant information the next time you open that module.&lt;/p&gt;
+&lt;p&gt;I used to see developers defining knockout observables in their modules with some initial values, and they go&lt;/p&gt;
+</content>
+		</entry>
+	
+		<entry>
+			<title>Blogging with Docpad</title>
+			<link href="http://anasnakawa.com//posts/blogging-with-docpad"/>
+			<updated>2013-03-02T20:00:00.000Z</updated>
+			<id>http://anasnakawa.com//posts/blogging-with-docpad</id>
+			<content type="html">&lt;p&gt;it has been a while since my last blog post, which happened over 2 years ago..  &lt;/p&gt;
 &lt;p&gt;usually i am not that active blogger, maybe because I wasn&amp;#39;t feeling comfortable with the blog engines out there, also lets not forget that most of the times i am a lazy person, especially when it comes to writing posts.&lt;/p&gt;
-&lt;h3&gt;Why I hated blog engines ?&lt;/h3&gt;
+&lt;h3 id=&quot;why-i-hated-blog-engines-&quot;&gt;Why I hated blog engines ?&lt;/h3&gt;
 &lt;p&gt;actually I think blog engines ( such as Wordpress, tumblr ..etc ) are great for writing posts for most people, but when it comes to a developer like me sometimes I just don&amp;#39;t feel that I have the freedom that I want..&lt;/p&gt;
 &lt;p&gt;either if I want to share a code snippet with some fancy syntax highlighting, or if I want to provide some live demo, both ways I will end up looking for some plugin to satisfy my needs ... not exactly what I was looking for.&lt;/p&gt;
 &lt;p&gt;the answer should be much simpler, all I need is to write HTML/CSS &amp;amp; JS code at my convenience, and that was not much to ask.&lt;/p&gt;
-&lt;h3&gt;A better alternative..&lt;/h3&gt;
+&lt;h3 id=&quot;a-better-alternative-&quot;&gt;A better alternative..&lt;/h3&gt;
 &lt;p&gt;Last year I started to hear about somthing called &lt;strong&gt;static site generators&lt;/strong&gt;, I even started to see some great front-end developers shifting their blogs into one of these generators..&lt;/p&gt;
 &lt;p&gt;first I was surprised that most static site generator implementations out there were built on ruby ( e.g: &lt;a href=&quot;https://github.com/mojombo/jekyll&quot;&gt;Jekyll&lt;/a&gt;, &lt;a href=&quot;https://github.com/imathis/octopress&quot;&gt;Octopress&lt;/a&gt; ), but since I am a javascript guy, I was looking for something more familiar to me...a Node Js implementation, and found that &lt;a href=&quot;https://github.com/bevry/docpad&quot;&gt;Docpad&lt;/a&gt; was exactly what I was looking for.&lt;/p&gt;
 &lt;p&gt;getting started with docpad was straight forward, they have some nice set of &lt;a href=&quot;http://docpad.org/docs/skeletons&quot;&gt;pre-built skeletons&lt;/a&gt;, so I cloned their &lt;a href=&quot;https://github.com/docpad/twitter-bootstrap.docpad&quot;&gt;Bootstrap Skeleton&lt;/a&gt;, and got my hands on this nice technology..&lt;/p&gt;
-&lt;h3&gt;Design inspiration&lt;/h3&gt;
+&lt;h3 id=&quot;design-inspiration&quot;&gt;Design inspiration&lt;/h3&gt;
 &lt;p&gt;it is worth mentioning that this site was not only inspired by &lt;a href=&quot;http://premiumpixels.com/&quot;&gt;Orman&amp;#39;s Clark&lt;/a&gt; great designs, I actually transofmed his &lt;a href=&quot;http://www.premiumpixels.com/freebies/code-editor-app-psd/&quot;&gt;Code Editor App&lt;/a&gt; completly into what you see over here.&lt;/p&gt;
 &lt;div class=&quot;img-wrap&quot;&gt;
   &lt;img alt=&quot;Code Editor App - By Orman Clark&quot; title=&quot;Code Editor App - By Orman Clark&quot; src=&quot;http://turbo.premiumpixels.com/wp-content/uploads/2012/05/preview.jpg&quot; /&gt;
 &lt;/div&gt;
 
-&lt;h3&gt;Site code&lt;/h3&gt;
+&lt;h3 id=&quot;site-code&quot;&gt;Site code&lt;/h3&gt;
 &lt;p&gt;you can find the source code of this site hosted on &lt;a href=&quot;https://github.com/anasnakawa/anasnakawa.com&quot;&gt;Github&lt;/a&gt;, go a head make a fork, and have it at your own site, I will be more than happy :)&lt;/p&gt;
 </content>
-        </entry>
-    
+		</entry>
+	
 </feed>

@@ -36,9 +36,11 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
       pkg: grunt.file.readJSON('package.json')
+    
     , concat: {
       js: jsConcatFiles
     }
+    
     , uglify: {
         options: {
           banner: '/*!\n'
@@ -55,13 +57,37 @@ module.exports = function(grunt) {
       //, css: cssUglifyFiles
       , js: jsUglifyFiles
     }
+    
+    , connect: {
+      site: {
+        options: {
+            port: 9001
+          , keepalive: true
+          , base: './out'
+        }
+      }
+    }
+
+    , shell: {
+      'static': {
+        command: 'docpad generate --env static'
+      }
+    }
   });
 
   // Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-shell');
 
   // Default task(s).
   grunt.registerTask('default', ['concat', 'uglify']);
+
+  // generate static site
+  grunt.registerTask('static', ['shell:static']);
+
+  // open result site in connect server
+  grunt.registerTask('server', ['connect']);
 
 };

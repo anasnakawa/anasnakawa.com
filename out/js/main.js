@@ -28,14 +28,14 @@
   // --------------------
   $(window).load(function() {
 
-      var $article = $('#appArticle')
-      , $sidebar = $('#appSidebar')
-      , articleHeight = $article.height()
-      , sidebarHeight = $sidebar.height();
+  	var $article = $('#appArticle')
+  	, $sidebar = $('#appSidebar')
+  	, articleHeight = $article.height()
+  	, sidebarHeight = $sidebar.height();
 
-      if( articleHeight < sidebarHeight ) {
-          $article.height( sidebarHeight + 10 );
-      }
+  	if( articleHeight < sidebarHeight ) {
+  		$article.height( sidebarHeight + 10 );
+  	}
 
   });
 

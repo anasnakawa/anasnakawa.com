@@ -406,9 +406,9 @@ func main() {
 &lt;/body&gt;
 </code></pre>
 
-    <tr>
-        <th>Markdown
-        <td class="markdown">
+	<tr>
+		<th>Markdown
+		<td class="markdown">
 <pre>
 <code># hello world
 
@@ -775,7 +775,7 @@ int main(int argc, char *argv[]) {
 @end
 
 @interface Test : NSObject &lt;HelloDelegate, WorldDataSource&gt; {
-    NSString *_greeting;
+	NSString *_greeting;
 }
 
 @property (nonatomic, readonly) NSString *greeting;
@@ -787,23 +787,23 @@ int main(int argc, char *argv[]) {
 @synthesize test=_test;
 
 + (id) test {
-    return [self testWithGreeting:@"Hello, world!\nFoo bar!"];
+	return [self testWithGreeting:@"Hello, world!\nFoo bar!"];
 }
 
 + (id) testWithGreeting:(NSString*)greeting {
-    return [[[self alloc] initWithGreeting:greeting] autorelease];
+	return [[[self alloc] initWithGreeting:greeting] autorelease];
 }
 
 - (id) initWithGreeting:(NSString*)greeting {
-    if ( (self = [super init]) ) {
-        _greeting = [greeting retain];
-    }
-    return self;
+	if ( (self = [super init]) ) {
+		_greeting = [greeting retain];
+	}
+	return self;
 }
 
 - (void) dealloc {
-    [_greeting release];
-    [super dealloc];
+	[_greeting release];
+	[super dealloc];
 }
 
 @end
@@ -825,12 +825,12 @@ namespace Test {
 
 /* defining a class */
 class Track : GLib.Object {              /* subclassing 'GLib.Object' */
-    public double mass;                  /* a public field */
-    public double name { get; set; }     /* a public property */
-    private bool terminated = false;     /* a private field */
-    public void terminate() {            /* a public method */
-      terminated = true;
-    }
+	public double mass;                  /* a public field */
+	public double name { get; set; }     /* a public property */
+	private bool terminated = false;     /* a private field */
+	public void terminate() {            /* a public method */
+	  terminated = true;
+	}
 }
 
 const ALL_UPPER_CASE = "you should follow this convention";
@@ -936,10 +936,10 @@ void main() pure nothrow @safe {
     <th>RenderMan RSL
     <td class="rsl">
 <pre><code>#define TEST_DEFINE 3.14
-/*    plastic surface shader
+/*	plastic surface shader
  *
- *     Pixie is:
- *     (c) Copyright 1999-2003 Okan Arikan. All rights reserved.
+ * 	Pixie is:
+ * 	(c) Copyright 1999-2003 Okan Arikan. All rights reserved.
  */
 
 surface plastic (float Ka = 1, Kd = 0.5, Ks = 0.5, roughness = 0.1;
@@ -1602,9 +1602,9 @@ pingUDPPort s a = sendTo s (Strict.singleton 0) a >> return ()
 
 %% state
 -record(state, {
-      cm,
-      channel
-     }).
+	  cm,
+	  channel
+	 }).
 
 test(Foo)->Foo.
 
@@ -1927,7 +1927,7 @@ foo %union% bar
     <th>Replacing TAB with 4 spaces
     <td>
 <pre><code class="python">for x in [1, 2, 3]:
-    count(x)
+	count(x)
 </code></pre>
 
   <tr>
@@ -1942,9 +1942,9 @@ foo %union% bar
     <th>Custom markup + TAB replacement
     <td>
 <pre><code class="python">for x in [1, 2, 3]:
-<span style="background:yellow">    </span>count(x)
-    if x == 3:
-    <span style="background:yellow">    </span>count(x + 1)
+<span style="background:yellow">	</span>count(x)
+	if x == 3:
+	<span style="background:yellow">	</span>count(x + 1)
 </code></pre>
 
   <tr>

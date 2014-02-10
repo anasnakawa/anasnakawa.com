@@ -106,7 +106,7 @@
       
       <footer class="app-footer span10 offset1">
         <p class="near">
-          built using <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on 
+          built using <a href="nodejs.org">NodeJs</a>, <a href="//docpad.org">Docpad</a>, and <a href="//twitter.github.com/bootstrap">Bootstrap</a>, source on 
           <a href="//github.com/anasnakawa/anasnakawa.com">Github</a>, &copy; Anas Nakawa <%= new Date().getFullYear() %> 
         </p>
         

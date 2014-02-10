@@ -80,13 +80,13 @@ margin-right(distance)
 margin(top, right, bottom, left)
 
 // float
-float(direction)            // left || right || none
+float(direction)			// left || right || none
 
 // text align
-text-align(direction)        // left || right || center
+text-align(direction)		// left || right || center
 
 // clear
-clear(direction)            // left || right || both
+clear(direction)			// left || right || both
 
 // left / right
 left(distance)

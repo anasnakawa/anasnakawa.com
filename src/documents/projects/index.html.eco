@@ -8,11 +8,24 @@ hideTitle : false
 <hr />
 
 <div class="repos">
-  <div data-repo="anasnakawa/jquery.ajax.fake"></div>
-  <div data-repo="anasnakawa/bi-app-sass"></div>
-  <div data-repo="anasnakawa/bi-app-less"></div>
-  <div data-repo="anasnakawa/kalendae-skins"></div>
-  <div data-repo="anasnakawa/docs"></div>
-  <div data-repo="anasnakawa/anasnakawa.com"></div>
-  <div data-repo="anasnakawa/anasnakawa-arabic"></div>
+  <script type="text/javascript">
+  var repos = [
+  	  'anasnakawa/jquery.ajax.fake'
+  	, 'anasnakawa/chrome-github-avatars'
+  	, 'anasnakawa/jDeclarative'
+  	, 'anasnakawa/bi-app-less'
+  	, 'anasnakawa/bi-app-sass'
+  	, 'anasnakawa/kalendae-skins'
+  	, 'anasnakawa/docs'
+  	, 'anasnakawa/anasnakawa.com'
+  	, 'anasnakawa/anasnakawa-arabic'
+  ]
+  , cache = [];
+  
+  for( var i in repos ) {
+  	cache.push( '<div data-repo="{repo}"></div>'.replace(/{repo}/, repos[ i ]) );
+  }
+
+  document.write( cache.join('\n') );
+  </script>
 </div>

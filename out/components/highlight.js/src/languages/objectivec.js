@@ -15,7 +15,7 @@ function(hljs) {
       'nonatomic interface super unichar finally dynamic IBOutlet IBAction selector strong ' +
       'weak readonly',
     literal:
-        'false true FALSE TRUE nil YES NO NULL',
+    	'false true FALSE TRUE nil YES NO NULL',
     built_in:
       'NSString NSDictionary CGRect CGPoint UIButton UILabel UITextView UIWebView MKMapView ' +
       'UISegmentedControl NSObject UITableViewDelegate UITableViewDataSource NSThread ' +
