@@ -1,6 +1,6 @@
-# [My Site](http://anasnakawa.com/) code using [DocPad](https://github.com/bevry/docpad)
+## [My Site](http://anasnakawa.com/) source using [DocPad](https://github.com/bevry/docpad)
 
-## Getting Started
+### Getting Started
 
 1. [Install DocPad](https://github.com/bevry/docpad)
 
@@ -18,6 +18,6 @@
 1. Start hacking away by modifying the `src` directory
 
 
-## License
+### License
 
 [MIT License](http://opensource.org/licenses/MIT)
