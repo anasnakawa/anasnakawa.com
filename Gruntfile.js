@@ -70,7 +70,10 @@ module.exports = function(grunt) {
 
     , shell: {
       'static': {
-        command: 'docpad generate --env static'
+          options: { 
+            stdout: true 
+          }
+        , command: 'docpad generate --env static'
       }
     }
   });

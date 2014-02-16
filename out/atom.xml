@@ -3,7 +3,7 @@
 	<title>Anas Nakawa</title>
 	<link href="http://anasnakawa.com/atom.xml" rel="self"/>
 	<link href="http://anasnakawa.com"/>
-	<updated>2014-02-10T09:29:14.713Z</updated>
+	<updated>2014-02-16T10:56:42.093Z</updated>
 	<id>http://anasnakawa.com</id>
 	<author>
 		<name>Anas Nakawa</name>
@@ -14,12 +14,79 @@
 		<entry>
 			<title>Resetting Knockout Observables</title>
 			<link href="http://anasnakawa.com//posts/resetting-knockout-observables"/>
-			<updated>2014-02-09T20:00:00.000Z</updated>
+			<updated>2014-02-10T20:00:00.000Z</updated>
 			<id>http://anasnakawa.com//posts/resetting-knockout-observables</id>
-			<content type="html">&lt;p&gt;Qoute: don&amp;#39;t repeat yourself, if your repeating yourself, you&amp;#39;re doing it wrong&lt;/p&gt;
-&lt;p&gt;A regular lifecycle for a given model in any application is that it will get initialized ( sometimes with an initial value )
-then it will get manipulated with some data, at the end of the module lifecycle, a model should be resetted to its default value so it won&amp;#39;t display irrelevant information the next time you open that module.&lt;/p&gt;
-&lt;p&gt;I used to see developers defining knockout observables in their modules with some initial values, and they go&lt;/p&gt;
+			<content type="html">&lt;blockquote&gt;
+&lt;p&gt;don&amp;#39;t repeat yourself, if your repeating yourself, you&amp;#39;re doing it wrong&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I used to see developers defining knockout observables somewhere in their modules, and later when hiding the module they go and reset those observables with the same value the observable has been initialized with.&lt;/p&gt;
+&lt;p&gt;but when you have a large module with tons of observables, things can go crazy, also whenever you add a new object to the module, you have always to remember to go and reset it.&lt;/p&gt;
+&lt;p&gt;life should be easier, and as a developers we always have the choice to make things easier for us.
+the problem we&amp;#39;re facing here, is that we don&amp;#39;t have to provide the default value twice. once you define an observable, you know what value it will become once it will be resetted.
+so the trick here is to define an easy way to tell the observbale that this is your default value.. so remember it.&lt;/p&gt;
+&lt;p&gt;I did a tiny extension to the knockout that hopefully will ease the pain here, let me show you the code:&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.price = ko.observable().&lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt;( &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt; );
+
+&lt;span class=&quot;comment&quot;&gt;// this.observableArray([]).default([]) will not work, because array is passed by reference&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// so second time you do a reset, it won't work&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.itemList = ko.observableArray([]).&lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt;( &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; {&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; [] });
+
+&lt;span class=&quot;comment&quot;&gt;// for the same previous reason, we use a factory to generate the default value&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.config = ko.observable().&lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt;( &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; {&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; {} });
+
+&lt;span class=&quot;comment&quot;&gt;// later you can reset it like this&lt;/span&gt;
+&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.price.reset();
+&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.itemList.reset();
+&lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.config.reset();&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;in case you don&amp;#39;t like to reset every observable&lt;/p&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt;( &lt;span class=&quot;keyword&quot;&gt;var&lt;/span&gt; obs &lt;span class=&quot;keyword&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt; ) {
+    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;( ko.isObservable( &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;[ obs ] ) ) {
+        &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;[ obs ].reset();
+    }
+}&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&quot;highlight&quot;&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// adding default value when initializing an observable&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// for later resetting, preventing the observable from&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// becoming undefined ( still you can set it to `null` )&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// ====================================================&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// example[1]: primitive types ( passed by value )&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// -----------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// var username = ko.observable().default( 'guest' );&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// username();              // 'guest'&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// username( 'admin' );     // 'admin'&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// username( undefined );   // 'guest'&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// username( 'john doe' );  // 'john doe'&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// username.reset();        // 'guest'&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;//&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// example[2]: non-premitive types ( passed by reference )&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// -------------------------------------------------------&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// var userList = ko.observableArray([]).default(function() { return []; });&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// var settings = ko.observable().default(function() { return { foo: 'bar' } });&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// userList.reset();&lt;/span&gt;
+&lt;span class=&quot;comment&quot;&gt;// settings.reset();&lt;/span&gt;
+ko.observable.prototype.reset = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;()&lt;/span&gt; {&lt;/span&gt;
+  &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;( &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._default === &lt;span class=&quot;string&quot;&gt;'function'&lt;/span&gt; ? &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._default() : &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._default );
+}
+
+&lt;span class=&quot;comment&quot;&gt;// * **param:** {object|factory}&lt;/span&gt;
+ko.observable.prototype.&lt;span class=&quot;keyword&quot;&gt;default&lt;/span&gt; = &lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;( value )&lt;/span&gt; {&lt;/span&gt;
+  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;( &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; value === &lt;span class=&quot;string&quot;&gt;'undefined'&lt;/span&gt; ) {
+    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt;;
+  }
+
+  &lt;span class=&quot;comment&quot;&gt;// store default value&lt;/span&gt;
+  &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;._default = value;
+
+  &lt;span class=&quot;comment&quot;&gt;// observable defined with no arguments&lt;/span&gt;
+  &lt;span class=&quot;comment&quot;&gt;// use default&lt;/span&gt;
+  &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;( &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;() === &lt;span class=&quot;string&quot;&gt;'undefined'&lt;/span&gt; ) {
+    &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.reset();
+  }
+
+  &lt;span class=&quot;comment&quot;&gt;// whenever value changed to undefined, reset to default&lt;/span&gt;
+  &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.subscribe(&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;( newValue )&lt;/span&gt; {&lt;/span&gt;
+    &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt; newValue === &lt;span class=&quot;string&quot;&gt;'undefined'&lt;/span&gt; &amp;amp;&amp;amp; &lt;span class=&quot;keyword&quot;&gt;this&lt;/span&gt;.reset();
+  });
+}&lt;/code&gt;&lt;/pre&gt;
 </content>
 		</entry>
 	

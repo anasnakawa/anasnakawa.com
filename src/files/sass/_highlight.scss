@@ -1,0 +1,10 @@
+.highlight {
+	padding: 0;
+	text-shadow: 0 1px 0 black;
+	border: none;
+
+	code {
+		@include box-shadow( 0 1px 0 rgba(255, 255, 255, 0.3) inset );
+		border: 1px solid black;
+	}
+}
