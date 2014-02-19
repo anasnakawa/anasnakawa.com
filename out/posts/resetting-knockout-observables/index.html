@@ -137,9 +137,9 @@
   <div class="app-post-content">
     <p>I used to see developers defining knockout observables somewhere in their modules, and later when hiding the module they go and reset those observables with the same value the observable has been initialized with.</p>
 <p>not a big deal, but the more you have observables in your module, the more annoying it will become to reset them.</p>
-<p>life should be easier, and as a developers we always have the choice to make things easier for us.
-the problem we&#39;re facing here, is that we don&#39;t have to provide the default value twice. once you define an observable, you know what value for this observable should be.</p>
-<p>so the trick here is to define an easy way to tell the observbale when you initialize it that this is your default value.. so remember it.</p>
+<p>life should be easier, and as developers we always have the choice to make things easier for us.
+the problem we&#39;re facing here, is that we shouldn&#39;t provide the default value twice. once you define an observable, you know what default value for this observable should be.</p>
+<p>so the trick here is to come up with an easy way to tell the observbale when you initialize it that this is your default value.</p>
 <p>I did a tiny extension to the knockout that hopefully will ease the pain here, let me show you the code:</p>
 <pre class="highlight"><code class="javascript"><span class="comment">// adding default value when initializing an observable</span>
 <span class="comment">// for later resetting, preventing the observable from</span>
@@ -186,9 +186,9 @@ ko.observable.prototype.<span class="keyword">default</span> = <span class="func
 you can define your own observable using the <code>default</code> extension as follows</p>
 <pre class="highlight"><code class="javascript"><span class="keyword">this</span>.price = ko.observable().<span class="keyword">default</span>( <span class="number">0</span> );
 
-<span class="comment">// this.observableArray([]).default([]) will not work, because array is passed by reference</span>
+<span class="comment">// this.observableArray([] ).default([ ]) will not work, because array is passed by reference</span>
 <span class="comment">// so second time you do a reset, it won't work</span>
-<span class="keyword">this</span>.itemList = ko.observableArray([]).<span class="keyword">default</span>( <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="keyword">return</span> [] });
+<span class="keyword">this</span>.itemList = ko.observableArray([ ]).<span class="keyword">default</span>( <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="keyword">return</span> [ ] });
 
 <span class="comment">// for the same previous reason, we use a factory to generate the default value</span>
 <span class="keyword">this</span>.config = ko.observable().<span class="keyword">default</span>( <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="keyword">return</span> {} });</code></pre>
@@ -201,6 +201,8 @@ you can define your own observable using the <code>default</code> extension as f
 <pre class="highlight"><code class="javascript"><span class="keyword">for</span>( <span class="keyword">var</span> obs <span class="keyword">in</span> <span class="keyword">this</span> ) {
   ko.isObservable( <span class="keyword">this</span>[ obs ] ) &amp;&amp; <span class="keyword">this</span>[ obs ].reset();
 }</code></pre>
+<hr>
+<p>Note here that when our default value is a primitive, we just pass it to the <code>default</code> method as is, while when our default value is an Array or an Object, we need to provide the default value using a factory method, and thats because unlike primitives, Arrays and Objects are passed by reference, so the factory method here will make sure everytime we do a reset, we&#39;ll get a fresh copy of the desired default value.</p>
 <p>hope it will ease your life a bit :)</p>
 
   </div>

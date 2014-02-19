@@ -2,9 +2,19 @@
 	padding: 0;
 	text-shadow: 0 1px 0 black;
 	border: none;
+	white-space: nowrap;
+    width: inherit;
+    word-break: normal;
+    word-wrap: normal;
 
 	code {
 		@include box-shadow( 0 1px 0 rgba(255, 255, 255, 0.3) inset );
 		border: 1px solid black;
+		width: 100%;
+	    white-space: pre;
+	    width: 100%;
+	    word-break: normal;
+	    word-wrap: normal;
+	    overflow: auto;
 	}
 }

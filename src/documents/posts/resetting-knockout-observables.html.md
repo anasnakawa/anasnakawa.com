@@ -9,10 +9,10 @@ I used to see developers defining knockout observables somewhere in their module
 
 not a big deal, but the more you have observables in your module, the more annoying it will become to reset them.
 
-life should be easier, and as a developers we always have the choice to make things easier for us.
-the problem we're facing here, is that we don't have to provide the default value twice. once you define an observable, you know what value for this observable should be.
+life should be easier, and as developers we always have the choice to make things easier for us.
+the problem we're facing here, is that we shouldn't provide the default value twice. once you define an observable, you know what default value for this observable should be.
 
-so the trick here is to define an easy way to tell the observbale when you initialize it that this is your default value.. so remember it.
+so the trick here is to come up with an easy way to tell the observbale when you initialize it that this is your default value.
 
 I did a tiny extension to the knockout that hopefully will ease the pain here, let me show you the code:
 
@@ -66,9 +66,9 @@ you can define your own observable using the `default` extension as follows
 ```js
 this.price = ko.observable().default( 0 );
 
-// this.observableArray([]).default([]) will not work, because array is passed by reference
+// this.observableArray([] ).default([ ]) will not work, because array is passed by reference
 // so second time you do a reset, it won't work
-this.itemList = ko.observableArray([]).default( function() { return [] });
+this.itemList = ko.observableArray([ ]).default( function() { return [ ] });
 
 // for the same previous reason, we use a factory to generate the default value
 this.config = ko.observable().default( function() { return {} });
@@ -90,5 +90,9 @@ for( var obs in this ) {
   ko.isObservable( this[ obs ] ) && this[ obs ].reset();
 }
 ```
+
+---
+
+Note here that when our default value is a primitive, we just pass it to the `default` method as is, while when our default value is an Array or an Object, we need to provide the default value using a factory method, and thats because unlike primitives, Arrays and Objects are passed by reference, so the factory method here will make sure everytime we do a reset, we'll get a fresh copy of the desired default value.
 
 hope it will ease your life a bit :)
