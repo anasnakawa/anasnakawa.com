@@ -91,7 +91,154 @@
             
             <div class="app-article-wrap">
               
-              just a workaround to not publish a drafted article :)
+              <article>
+  
+  <header>
+    
+    <h1>Resetting Knockout Observables</h1>
+    
+    <hr />
+
+    <div class="app-tags">
+      <time class="label app-tag" pubdate datetime="Wed Feb 19 2014 00:00:00 GMT+0400 (GST)">
+        <span class="js-format-date" data-date="Wed Feb 19 2014 00:00:00 GMT+0400 (GST)"></span>
+      </time>
+
+      
+        <!-- displaying a list of tags with their corresponding links -->
+
+  <a href="/tags/javascript.html">
+    <span class="label app-tag">javascript</span>
+  </a>
+
+  <a href="/tags/mvc.html">
+    <span class="label app-tag">mvc</span>
+  </a>
+
+  <a href="/tags/mvvm.html">
+    <span class="label app-tag">mvvm</span>
+  </a>
+
+  <a href="/tags/kncokout.html">
+    <span class="label app-tag">kncokout</span>
+  </a>
+
+  <a href="/tags/post.html">
+    <span class="label app-tag">post</span>
+  </a>
+
+      
+    </div>
+    
+    <hr />
+        
+  </header>
+  
+  <div class="app-post-content">
+    <p>I used to see developers defining knockout observables somewhere in their modules, and later when hiding the module they go and reset those observables with the same value the observable has been initialized with.</p>
+<p>not a big deal, but the more you have observables in your module, the more annoying it will become to reset them.</p>
+<p>life should be easier, and as a developers we always have the choice to make things easier for us.
+the problem we&#39;re facing here, is that we don&#39;t have to provide the default value twice. once you define an observable, you know what value for this observable should be.</p>
+<p>so the trick here is to define an easy way to tell the observbale when you initialize it that this is your default value.. so remember it.</p>
+<p>I did a tiny extension to the knockout that hopefully will ease the pain here, let me show you the code:</p>
+<pre class="highlight"><code class="javascript"><span class="comment">// adding default value when initializing an observable</span>
+<span class="comment">// for later resetting, preventing the observable from</span>
+<span class="comment">// becoming undefined ( still you can set it to `null` )</span>
+<span class="comment">// ====================================================</span>
+<span class="comment">// example[1]: primitive types ( passed by value )</span>
+<span class="comment">// -----------------------------------------------</span>
+<span class="comment">// var username = ko.observable().default( 'guest' );</span>
+<span class="comment">// username();              // 'guest'</span>
+<span class="comment">// username( 'admin' );     // 'admin'</span>
+<span class="comment">// username( undefined );   // 'guest'</span>
+<span class="comment">// username( 'john doe' );  // 'john doe'</span>
+<span class="comment">// username.reset();        // 'guest'</span>
+<span class="comment">//</span>
+<span class="comment">// example[2]: non-premitive types ( passed by reference )</span>
+<span class="comment">// -------------------------------------------------------</span>
+<span class="comment">// var userList = ko.observableArray([]).default(function() { return []; });</span>
+<span class="comment">// var settings = ko.observable().default(function() { return { foo: 'bar' } });</span>
+<span class="comment">// userList.reset();</span>
+<span class="comment">// settings.reset();</span>
+ko.observable.prototype.reset = <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span>
+  <span class="keyword">this</span>( <span class="keyword">typeof</span> <span class="keyword">this</span>._default === <span class="string">'function'</span> ? <span class="keyword">this</span>._default() : <span class="keyword">this</span>._default );
+}
+
+<span class="comment">// * **param:** {object|factory}</span>
+ko.observable.prototype.<span class="keyword">default</span> = <span class="function"><span class="keyword">function</span><span class="params">( value )</span> {</span>
+  <span class="keyword">if</span>( <span class="keyword">typeof</span> value === <span class="string">'undefined'</span> ) {
+    <span class="keyword">return</span>;
+  }
+
+  <span class="comment">// store default value</span>
+  <span class="keyword">this</span>._default = value;
+
+  <span class="comment">// observable defined with no arguments</span>
+  <span class="comment">// use default</span>
+  <span class="keyword">typeof</span> <span class="keyword">this</span>() === <span class="string">'undefined'</span> &amp;&amp; <span class="keyword">this</span>.reset();
+
+  <span class="comment">// whenever value changed to undefined, reset to default</span>
+  <span class="keyword">this</span>.subscribe(<span class="function"><span class="keyword">function</span><span class="params">( newValue )</span> {</span>
+    <span class="keyword">typeof</span> newValue === <span class="string">'undefined'</span> &amp;&amp; <span class="keyword">this</span>.reset();
+  });
+}</code></pre>
+<p>after you include this tiny extension to your application ( Note that it should be added after loading <code>knockout.js</code> file ),
+you can define your own observable using the <code>default</code> extension as follows</p>
+<pre class="highlight"><code class="javascript"><span class="keyword">this</span>.price = ko.observable().<span class="keyword">default</span>( <span class="number">0</span> );
+
+<span class="comment">// this.observableArray([]).default([]) will not work, because array is passed by reference</span>
+<span class="comment">// so second time you do a reset, it won't work</span>
+<span class="keyword">this</span>.itemList = ko.observableArray([]).<span class="keyword">default</span>( <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="keyword">return</span> [] });
+
+<span class="comment">// for the same previous reason, we use a factory to generate the default value</span>
+<span class="keyword">this</span>.config = ko.observable().<span class="keyword">default</span>( <span class="function"><span class="keyword">function</span><span class="params">()</span> {</span> <span class="keyword">return</span> {} });</code></pre>
+<p>later when you want to reset those observables, you can call the <code>reset</code> method..</p>
+<pre class="highlight"><code class="javascript"><span class="comment">// later you can reset it like this</span>
+<span class="keyword">this</span>.price.reset();
+<span class="keyword">this</span>.itemList.reset();
+<span class="keyword">this</span>.config.reset();</code></pre>
+<p>and in case you don&#39;t like to reset every observable</p>
+<pre class="highlight"><code class="javascript"><span class="keyword">for</span>( <span class="keyword">var</span> obs <span class="keyword">in</span> <span class="keyword">this</span> ) {
+  ko.isObservable( <span class="keyword">this</span>[ obs ] ) &amp;&amp; <span class="keyword">this</span>[ obs ].reset();
+}</code></pre>
+<p>hope it will ease your life a bit :)</p>
+
+  </div>
+
+  <hr />
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'anasnakawa'; // required: replace example with your forum shortname
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</article>
+
+<footer>
+	
+	<section id="related">
+		<h3>Related Posts</h3>
+		<nav class="linklist">
+			
+				<li><span>Sun Mar 03 2013 00:00:00 GMT+0400 (GST)</span>
+				&raquo;
+				<a href="/posts/blogging-with-docpad">Blogging with Docpad</a></li>
+			
+		</nav>
+	</section>
+	
+</footer>
             
             </div>
           

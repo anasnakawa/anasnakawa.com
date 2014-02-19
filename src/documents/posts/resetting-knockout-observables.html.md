@@ -1,47 +1,20 @@
 ---
 title 	: 'Resetting Knockout Observables'
-layout	: 'draft'
+layout	: 'post'
 tags	: ['javascript', 'mvc', 'mvvm', 'kncokout', 'post']
-date    : '11-feb-2014'
+date    : '19-feb-2014'
 ---
-
-> don't repeat yourself, if your repeating yourself, you're doing it wrong
 
 I used to see developers defining knockout observables somewhere in their modules, and later when hiding the module they go and reset those observables with the same value the observable has been initialized with.
 
-but when you have a large module with tons of observables, things can go crazy, also whenever you add a new object to the module, you have always to remember to go and reset it.
+not a big deal, but the more you have observables in your module, the more annoying it will become to reset them.
 
 life should be easier, and as a developers we always have the choice to make things easier for us.
-the problem we're facing here, is that we don't have to provide the default value twice. once you define an observable, you know what value it will become once it will be resetted.
-so the trick here is to define an easy way to tell the observbale that this is your default value.. so remember it.
+the problem we're facing here, is that we don't have to provide the default value twice. once you define an observable, you know what value for this observable should be.
+
+so the trick here is to define an easy way to tell the observbale when you initialize it that this is your default value.. so remember it.
 
 I did a tiny extension to the knockout that hopefully will ease the pain here, let me show you the code:
-
-```js
-this.price = ko.observable().default( 0 );
-
-// this.observableArray([]).default([]) will not work, because array is passed by reference
-// so second time you do a reset, it won't work
-this.itemList = ko.observableArray([]).default( function() { return [] });
-
-// for the same previous reason, we use a factory to generate the default value
-this.config = ko.observable().default( function() { return {} });
-
-// later you can reset it like this
-this.price.reset();
-this.itemList.reset();
-this.config.reset();
-```
-
-in case you don't like to reset every observable
-
-```js
-for( var obs in this ) {
-	if( ko.isObservable( this[ obs ] ) ) {
-		this[ obs ].reset();
-	}
-}
-```
 
 ```js
 // adding default value when initializing an observable
@@ -78,9 +51,7 @@ ko.observable.prototype.default = function( value ) {
  
   // observable defined with no arguments
   // use default
-  if( typeof this() === 'undefined' ) {
-    this.reset();
-  }
+  typeof this() === 'undefined' && this.reset();
  
   // whenever value changed to undefined, reset to default
   this.subscribe(function( newValue ) {
@@ -88,3 +59,36 @@ ko.observable.prototype.default = function( value ) {
   });
 }
 ```
+
+after you include this tiny extension to your application ( Note that it should be added after loading `knockout.js` file ),
+you can define your own observable using the `default` extension as follows
+
+```js
+this.price = ko.observable().default( 0 );
+
+// this.observableArray([]).default([]) will not work, because array is passed by reference
+// so second time you do a reset, it won't work
+this.itemList = ko.observableArray([]).default( function() { return [] });
+
+// for the same previous reason, we use a factory to generate the default value
+this.config = ko.observable().default( function() { return {} });
+```
+
+later when you want to reset those observables, you can call the `reset` method..
+
+```js
+// later you can reset it like this
+this.price.reset();
+this.itemList.reset();
+this.config.reset();
+```
+
+and in case you don't like to reset every observable
+
+```js
+for( var obs in this ) {
+  ko.isObservable( this[ obs ] ) && this[ obs ].reset();
+}
+```
+
+hope it will ease your life a bit :)
