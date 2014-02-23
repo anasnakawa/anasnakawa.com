@@ -43,16 +43,20 @@ module.exports = function(grunt) {
     
     , uglify: {
         options: {
-          banner: '/*!\n'
-              + ' * ================================= \n'
-              + ' * <%= pkg.name %> <%= pkg.version %>\n'
-              + ' * ================================= \n'
-              + ' * Copyright ' + new Date().getFullYear() + ' Anas Nakawa \n'
-              + ' * Released under the MIT License\n'
-              + ' * ================================= \n'
-              + ' * souce code can be found on https://github.com/anasnakawa/anasnakawa.com \n'
-              + ' * ================================= \n'
-              + ' */\n\n'
+          banner: 
+            [ 
+                '/*!'
+              , ' * ================================= '
+              , ' * <%= pkg.name %> <%= pkg.version %>'
+              , ' * ================================= '
+              , ' * Copyright ' + new Date().getFullYear() + ' Anas Nakawa '
+              , ' * Released under the MIT License'
+              , ' * ================================= '
+              , ' * souce code can be found on https://github.com/anasnakawa/anasnakawa.com '
+              , ' * ================================= '
+              , ' */'
+              , ''
+            ].join( '\n' )
       }
       //, css: cssUglifyFiles
       , js: jsUglifyFiles
