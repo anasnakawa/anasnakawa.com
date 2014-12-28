@@ -57,6 +57,8 @@ ko.observable.prototype.default = function( value ) {
   this.subscribe(function( newValue ) {
     typeof newValue === 'undefined' && this.reset();
   });
+  
+  return this;
 }
 ```
 
